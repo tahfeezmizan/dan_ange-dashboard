@@ -9,10 +9,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "#F9AB7F",
+        secondary: "#373744",
+      },
+      container: {
+        screens: {
+          DEFAULT: "1440px",
+        },
+        center: true,
+        padding: {
+          DEFAULT: "5%",
+          sm: "1rem",
+        },
+      },
+      fontFamily: {
+        museomoderno: ["MuseoModerno", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },
+
   plugins: [],
 } satisfies Config;
