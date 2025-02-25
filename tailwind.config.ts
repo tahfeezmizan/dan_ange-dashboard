@@ -11,6 +11,16 @@ export default {
       colors: {
         primary: "#F9AB7F",
         secondary: "#373744",
+        billowy: "#F7F0E8",
+        winthrop: "#FDE5D7",
+        gray50: "#E9E9E9",
+        gray100: "#BABABA",
+        gray200: "#999999",
+        gray300: "#6B6B6B",
+        gray400: "#4E4E4E",
+        gray500: "#222222",
+        gray600: "#1F1F1F",
+        gray700: "#181818",
       },
       container: {
         screens: {
