@@ -23,13 +23,21 @@ export default {
         gray700: "#181818",
       },
       container: {
-        screens: {
-          DEFAULT: "1440px",
-        },
         center: true,
+        screens: {
+          "2xl": "1580px",
+          xl: "1440px",
+          lg: "1024px",
+          md: "100%",
+          sm: "100%",
+        },
         padding: {
-          DEFAULT: "5%",
-          sm: "1rem",
+          DEFAULT: "1rem",
+          sm: "2rem",
+          md: "3rem",
+          lg: "4rem",
+          xl: "7rem",
+          "2xl": "8rem",
         },
       },
       fontFamily: {
