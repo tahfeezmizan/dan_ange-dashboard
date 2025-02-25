@@ -6,6 +6,33 @@ import Link from "next/link";
 import cartIcon from "@/assets/cart.svg";
 import profileIcon from "@/assets/profile.svg";
 import { useState } from "react";
+import type { MenuProps } from "antd";
+import { Dropdown, Space } from "antd";
+
+const items: MenuProps["items"] = [
+  {
+    key: "1",
+    label: (
+      <Link
+        href="/login"
+        className="bg-gradient-to-r from-[#F9AB7F] via-[#F9AB7FCC] to-white text-gray400 uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno"
+      >
+        LOG IN
+      </Link>
+    ),
+  },
+  {
+    key: "2",
+    label: (
+      <Link
+        href="/sign-up"
+        className="bg-gradient-to-r from-[#F9AB7F] via-[#F9AB7FCC] to-white text-gray400 uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno"
+      >
+        SIGN UP
+      </Link>
+    ),
+  },
+];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,21 +105,43 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3 xl:gap-6">
-          <div className="relative">
+          {/* cart */}
+          <div className="relative cursor-pointer">
             <Image width={24} height={24} src={cartIcon} alt="Cart" />
             <span className="absolute w-4 h-4 top-0 right-0 p-1 bg-primary rounded-full font-medium capitalize text-[8px] flex justify-center items-center">
               3
             </span>
           </div>
-          <div className="bg-primary p-1 md:p-3 rounded-full">
-            <Image
-              width={24}
-              height={24}
-              src={profileIcon}
-              alt="Profile"
-              className="w-5 h-5 md:w-6 md:h-6"
-            />
-          </div>
+          {/* profile */}
+          <Space direction="vertical">
+            <Space wrap>
+              <Dropdown
+                menu={{
+                  items,
+                  style: {
+                    width: "340px",
+                    backgroundColor: "#FDE5D7",
+                    paddingTop: "26px",
+                    paddingBottom: "26px",
+                    display: "flex",
+                    gap: "24px",
+                  },
+                }}
+                placement="bottom"
+                arrow
+              >
+                <div className="bg-primary p-1 md:p-3 rounded-full cursor-pointer">
+                  <Image
+                    width={24}
+                    height={24}
+                    src={profileIcon}
+                    alt="Profile"
+                    className="w-5 h-5 md:w-6 md:h-6"
+                  />
+                </div>
+              </Dropdown>
+            </Space>
+          </Space>
         </div>
       </div>
 
