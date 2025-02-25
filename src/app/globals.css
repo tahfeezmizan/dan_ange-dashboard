@@ -16,3 +16,8 @@ body {
 .museomoderno {
   font-family: var(--font-museomoderno);
 }
+
+.ant-dropdown-menu-item:hover {
+  background-color: #fde5d7 !important;
+  color: #000;
+}

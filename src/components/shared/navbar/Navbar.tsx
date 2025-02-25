@@ -15,7 +15,9 @@ const items: MenuProps["items"] = [
     label: (
       <Link
         href="/login"
-        className="bg-gradient-to-r from-[#F9AB7F] via-[#F9AB7FCC] to-white text-gray400 uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno"
+        onMouseEnter={(e) => (e.currentTarget.style.background = "")}
+        onMouseLeave={(e) => (e.currentTarget.style.background = "")}
+        className="bg-gradient-to-r from-[#F9AB7FCC] to-white text-gray400 uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno transition-all duration-300"
       >
         LOG IN
       </Link>
@@ -26,7 +28,9 @@ const items: MenuProps["items"] = [
     label: (
       <Link
         href="/sign-up"
-        className="bg-gradient-to-r from-[#F9AB7F] via-[#F9AB7FCC] to-white text-gray400 uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno"
+        onMouseEnter={(e) => (e.currentTarget.style.background = "")}
+        onMouseLeave={(e) => (e.currentTarget.style.background = "")}
+        className="bg-gradient-to-r from-[#F9AB7FCC] to-white text-gray400 uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno transition-all duration-300"
       >
         SIGN UP
       </Link>
@@ -116,6 +120,7 @@ const Navbar = () => {
           <Space direction="vertical">
             <Space wrap>
               <Dropdown
+                className="!hover:bg-none"
                 menu={{
                   items,
                   style: {
