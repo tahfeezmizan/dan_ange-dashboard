@@ -21,3 +21,7 @@ body {
   background-color: #fde5d7 !important;
   color: #000;
 }
+
+.ant-progress-circle-path {
+  stroke: #005b96 !important;
+}

@@ -25,7 +25,7 @@ export default {
       container: {
         center: true,
         screens: {
-          "2xl": "1580px",
+          "2xl": "1920px",
           xl: "1440px",
           lg: "1024px",
           md: "100%",
@@ -37,7 +37,7 @@ export default {
           md: "3rem",
           lg: "4rem",
           xl: "7rem",
-          "2xl": "8rem",
+          "2xl": "7.5rem",
         },
       },
       fontFamily: {
