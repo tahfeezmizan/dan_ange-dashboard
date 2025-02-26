@@ -10,26 +10,32 @@ import bgImg from "@/assets/bg-img.svg";
 const Banner = () => {
   return (
     <div className="mt-10">
-      <div className="container flex justify-between items-center gap-[25px]">
+      <div className="container grid xl:flex justify-between items-center gap-[25px]">
         {/* left side section */}
 
         <div>
-          <p className="text-primary font-museomoderno text-2xl font-bold leading-[38px] capitalize mb-2">
+          <p className="text-primary font-museomoderno text-xl 2xl:text-2xl font-bold 2xl:leading-[38px] capitalize mb-2">
             STEP INTO THE COLLECTIVE. <br /> SPARK THE CHANGE, MAKE a
             DIFFERENCE.
           </p>
-          <h1 className="font-museomoderno text-[80px] font-semibold leading-[96px] uppercase mb-4 text-gray700">
+          <h1 className="font-museomoderno text-[40px] 2xl:text-[80px] font-semibold 2xl:leading-[96px] uppercase mb-4 text-gray700">
             YOUR CHANCE <br /> STARTS HERE
           </h1>
           <p className="text-gray500 text-base font-extralight leading-[25px]">
             Enter the draw and support the Humpty Dumpty Foundation
           </p>
-          <div className="mt-10 flex items-center gap-6 mb-[23px]">
-            <button className="bg-gradient-to-r from-[#F9AB7F] via-[#F9AB7FCC] to-white uppercase text-base font-bold leading-[25px] rounded-[32px] text-gray400 px-8 py-4 flex gap-[10px]">
-              <Image width={24} height={24} src={packIcon} alt="Pack Icon" />
+          <div className="mt-10 grid md:flex items-center gap-3 2xl:gap-6 mb-[23px]">
+            <button className="bg-gradient-to-r from-[#F9AB7F] via-[#F9AB7FCC] to-white uppercase text-xs 2xl:text-base font-bold 2xl:leading-[25px] rounded-[32px] text-gray400 px-4 2xl:px-8 py-2 2xl:py-4 flex gap-[5px] 2xl:gap-[10px] w-full md:w-auto">
+              <Image
+                width={24}
+                height={24}
+                src={packIcon}
+                alt="Pack Icon"
+                className="w-3 h-3 2xl:w-[24px] 2xl:h-[24px]"
+              />
               Buy A pack
             </button>
-            <button className="border border-primary rounded-full px-8 py-4 font-museomoderno font-bold text-gray400 leading-[25px] uppercase">
+            <button className="border border-primary rounded-full text-xs 2xl:text-base px-4 2xl:px-8 py-2 2xl:py-4 font-museomoderno font-bold text-gray400 2xl:leading-[25px] uppercase w-full md:w-auto">
               ABOUT OUR CHARITY PARTNER
             </button>
           </div>
@@ -41,7 +47,7 @@ const Banner = () => {
             </p>
             {/* day to close this */}
             <div className="">
-              <Flex gap="large" wrap className="flex gap-[56px]">
+              <Flex gap="large" wrap className="flex gap-10 2xl:gap-[56px]">
                 {/* Days */}
                 <div className="grid gap-2 text-center">
                   <Progress type="circle" percent={25} format={() => "05"} />
@@ -85,7 +91,7 @@ const Banner = () => {
             height={1000}
             src={bannerImg}
             alt="Banner Image"
-            className="object-cover w-[893px] h-[367px]"
+            className="object-cover 2xl:w-[893px] 2xl:h-[367px]"
           />
           <Image
             width={1000}
