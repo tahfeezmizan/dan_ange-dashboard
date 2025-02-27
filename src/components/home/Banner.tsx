@@ -10,7 +10,13 @@ import bgImg from "@/assets/bg-img.svg";
 const Banner = () => {
   return (
     <div className="mt-10">
-      <div className="container grid xl:flex justify-between items-center gap-[25px]">
+      <div
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(0, 91, 150, 0.01) 35.16%, rgba(0, 91, 150, 0.12) 83.83%)",
+        }}
+        className="container min-h-screen grid xl:flex justify-between items-center gap-[25px]"
+      >
         {/* left side section */}
 
         <div>
