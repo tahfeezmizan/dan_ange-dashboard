@@ -11,6 +11,7 @@ export default {
       colors: {
         primary: "#F9AB7F",
         secondary: "#373744",
+        black: "#181818",
         billowy: "#F7F0E8",
         winthrop: "#FDE5D7",
         gray50: "#E9E9E9",
@@ -25,20 +26,20 @@ export default {
       container: {
         center: true,
         screens: {
-          "2xl": "1920px",
-          xl: "1440px",
+          "2xl": "1580px",
+          xl: "1324px",
           lg: "1024px",
-          md: "100%",
-          sm: "100%",
+          md: "768px",
+          sm: "576px",
         },
-        padding: {
-          DEFAULT: "1rem",
-          sm: "2rem",
-          md: "3rem",
-          lg: "4rem",
-          xl: "7rem",
-          "2xl": "7.5rem",
-        },
+        // padding: {
+        //   DEFAULT: "1rem",
+        //   sm: "2rem",
+        //   md: "3rem",
+        //   lg: "4rem",
+        //   xl: "7rem",
+        //   "2xl": "1rem",
+        // },
       },
       fontFamily: {
         museomoderno: ["MuseoModerno", "sans-serif"],

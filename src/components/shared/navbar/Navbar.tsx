@@ -17,7 +17,7 @@ const items: MenuProps["items"] = [
         href="/login"
         onMouseEnter={(e) => (e.currentTarget.style.background = "")}
         onMouseLeave={(e) => (e.currentTarget.style.background = "")}
-        className="bg-gradient-to-r from-[#F9AB7FCC] to-white text-gray400 uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno transition-all duration-300"
+        className="bg-gradient-to-r from-[#F9AB7FCC] to-white uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno transition-all duration-300"
       >
         LOG IN
       </Link>
@@ -30,7 +30,7 @@ const items: MenuProps["items"] = [
         href="/sign-up"
         onMouseEnter={(e) => (e.currentTarget.style.background = "")}
         onMouseLeave={(e) => (e.currentTarget.style.background = "")}
-        className="bg-gradient-to-r from-[#F9AB7FCC] to-white text-gray400 uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno transition-all duration-300"
+        className="bg-gradient-to-r from-[#F9AB7FCC] to-white uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno transition-all duration-300"
       >
         SIGN UP
       </Link>
@@ -42,14 +42,14 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="bg-secondary text-white font-museomoderno mx-auto text-3xl py-3">
+    <div className="bg-secondary text-white font-museomoderno mx-auto text-3xl">
       <div className="container flex items-center justify-between">
         <Image
-          width={224}
-          height={130}
+          width={1000}
+          height={1000}
           src={navLogo}
-          alt="Logo"
-          className="w-[154px] h-[85px] md:w-[224px] md:h-[130px]"
+          alt="logo"
+          className="w-[154px] h-[85px] md:w-[224px] md:h-[130px] lg:w-[280px] lg:h-[162px]"
         />
         <div className="flex items-center gap-10 xl:hidden">
           <div
@@ -63,7 +63,7 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
               className={`w-6 h-6 transition-transform duration-300 ${
-                isMenuOpen ? "rotate-45" : ""
+                isMenuOpen ? "" : ""
               }`}
             >
               <path

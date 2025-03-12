@@ -2,7 +2,7 @@ import Banner from "@/components/home/Banner";
 
 export default function Home() {
   return (
-    <div className="my-20">
+    <div className="mb-80">
       <Banner />
     </div>
   );
