@@ -5,6 +5,7 @@ import CurrentPromotion from "@/components/home/CurrentPromotion";
 import FromAmbassadors from "@/components/home/FromAmbassadors";
 import OurImpact from "@/components/home/OurImpact";
 import Prize from "@/components/home/Prize";
+import RecentWinners from "@/components/home/RecentWinners";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <FromAmbassadors />
         <CharityPartner />
         <OurImpact />
+        <RecentWinners />
       </div>
     </div>
   );
