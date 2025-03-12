@@ -1,4 +1,5 @@
 import Banner from "@/components/home/Banner";
+import CharityPartner from "@/components/home/CharityPartner";
 import ChoosePack from "@/components/home/ChoosePack";
 import CurrentPromotion from "@/components/home/CurrentPromotion";
 import FromAmbassadors from "@/components/home/FromAmbassadors";
@@ -13,6 +14,7 @@ export default function Home() {
         <CurrentPromotion />
         <ChoosePack />
         <FromAmbassadors />
+        <CharityPartner />
       </div>
     </div>
   );
