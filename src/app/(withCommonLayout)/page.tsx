@@ -1,9 +1,11 @@
 import Banner from "@/components/home/Banner";
+import Prize from "@/components/home/Prize";
 
 export default function Home() {
   return (
-    <div className="mb-80">
+    <div>
       <Banner />
+      <Prize />
     </div>
   );
 }
