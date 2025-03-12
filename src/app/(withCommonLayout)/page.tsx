@@ -3,6 +3,7 @@ import CharityPartner from "@/components/home/CharityPartner";
 import ChoosePack from "@/components/home/ChoosePack";
 import CurrentPromotion from "@/components/home/CurrentPromotion";
 import FromAmbassadors from "@/components/home/FromAmbassadors";
+import OurImpact from "@/components/home/OurImpact";
 import Prize from "@/components/home/Prize";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
         <ChoosePack />
         <FromAmbassadors />
         <CharityPartner />
+        <OurImpact />
       </div>
     </div>
   );
