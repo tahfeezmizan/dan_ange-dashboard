@@ -2,6 +2,7 @@ import Image from "next/image";
 import first from "@/assets/home/first.png";
 import second from "@/assets/home/second.png";
 import third from "@/assets/home/third.png";
+import { SectionHeader } from "../shared/header/SectionHeader";
 const prizes = [
   {
     id: 1,
@@ -33,12 +34,11 @@ const prizes = [
 
 const Prize = () => {
   return (
-    <div className="container mx-auto px-4">
-      <h2 className="font-museomoderno font-semibold text-3xl md:text-4xl lg:text-3xl xl:text-[56px] text-black text-center mb-12">
-        Every pack purchased contributes to projects that help to make a
-        difference.
-      </h2>
-
+    <div className="container mx-auto px-4 space-y-24">
+      <SectionHeader
+        title="Every pack purchased contributes to projects that help to make a
+        difference."
+      />
       {/* Responsive Prize Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {prizes.map((prize) => (
