@@ -32,7 +32,7 @@ const Banner = () => {
           <p className="text-base md:text-lg font-light leading-[25px]">
             Enter the draw and support the Humpty Dumpty Foundation
           </p>
-          <div className="mt-6 md:mt-10 flex items-center justify-center gap-4 md:gap-6 ">
+          <div className="mt-6 md:mt-10 flex items-center xl:items-start justify-center xl:justify-start gap-4 md:gap-6 ">
             <button className="bg-gradient-to-r from-[#F9AB7F] via-[#F9AB7FCC] to-[#F9AB7FCC]/20 uppercase text-xs md:text-sm 2xl:text-base font-bold leading-[25px] rounded-[32px] text-gray400 px-4 md:px-6 2xl:px-8 py-2 md:py-3 2xl:py-4 flex gap-2 items-center w-auto">
               <Image
                 width={24}

@@ -10,9 +10,7 @@ export const SectionHeader = ({
       <h2 className="text-center font-museomoderno font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[56px] text-black">
         {title}
       </h2>
-      <p className="text-sm font-medium text-text_light_gray max-w-[1100px] ">
-        {subtitle}
-      </p>
+      <p className="font-light max-w-[1100px] text-gray200">{subtitle}</p>
     </div>
   );
 };
