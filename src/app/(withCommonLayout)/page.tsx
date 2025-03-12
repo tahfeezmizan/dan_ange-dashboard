@@ -3,9 +3,11 @@ import CharityPartner from "@/components/home/CharityPartner";
 import ChoosePack from "@/components/home/ChoosePack";
 import CurrentPromotion from "@/components/home/CurrentPromotion";
 import FromAmbassadors from "@/components/home/FromAmbassadors";
+import HomeFaq from "@/components/home/HomeFaq";
 import OurImpact from "@/components/home/OurImpact";
 import Prize from "@/components/home/Prize";
 import RecentWinners from "@/components/home/RecentWinners";
+import Sponsors from "@/components/home/Sponsors";
 
 export default function Home() {
   return (
@@ -19,6 +21,8 @@ export default function Home() {
         <CharityPartner />
         <OurImpact />
         <RecentWinners />
+        <HomeFaq />
+        <Sponsors />
       </div>
     </div>
   );

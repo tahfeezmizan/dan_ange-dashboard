@@ -38,7 +38,7 @@ const RecentWinners = () => {
             />
 
             {/* Testimonial Card */}
-            <div className="bg-white shadow-lg rounded-lg p-4 md:p-6 w-[90%] lg:w-[450px] text-center lg:text-left mt-4 lg:mt-[-50px]">
+            <div className="bg-white rounded-lg p-4 md:p-6 w-[90%] lg:w-[450px] text-center lg:text-left mt-4 lg:mt-[-50px]">
               <p className="text-gray300 text-sm md:text-base font-light text-center">
                 {winner.testimonial}
               </p>
