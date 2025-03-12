@@ -1,6 +1,7 @@
 import Banner from "@/components/home/Banner";
 import ChoosePack from "@/components/home/ChoosePack";
 import CurrentPromotion from "@/components/home/CurrentPromotion";
+import FromAmbassadors from "@/components/home/FromAmbassadors";
 import Prize from "@/components/home/Prize";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
         <Prize />
         <CurrentPromotion />
         <ChoosePack />
+        <FromAmbassadors />
       </div>
     </div>
   );

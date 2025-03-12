@@ -23,7 +23,7 @@ const steps = [
 
 const CurrentPromotion = () => {
   return (
-    <div className="container mx-auto px-4 py-12 space-y-24">
+    <div className="container mx-auto px-4 py-12 space-y-10 md:space-y-16 xl:space-y-24">
       {/* Section Title */}
       <SectionHeader title="How our current promotion works." />
       {/* Steps Grid */}
