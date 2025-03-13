@@ -80,17 +80,8 @@ const Navbar = () => {
           >
             About Us
           </Link>
-          <Link
-            className="text-base font-semibold leading-[25px]"
-            href="/how-it-works"
-          >
-            How It Works
-          </Link>
-          <Link
-            className="text-base font-semibold leading-[25px]"
-            href="/creat-a-chance"
-          >
-            Create A Chance
+          <Link className="text-base font-semibold leading-[25px]" href="/shop">
+            Shop
           </Link>
           <Link
             className="text-base font-semibold leading-[25px]"
@@ -98,8 +89,8 @@ const Navbar = () => {
           >
             Partners
           </Link>
-          <Link className="text-base font-semibold leading-[25px]" href="/spin">
-            Spin
+          <Link className="text-base font-semibold leading-[25px]" href="/faq">
+            FAQ’s
           </Link>
         </div>
 
