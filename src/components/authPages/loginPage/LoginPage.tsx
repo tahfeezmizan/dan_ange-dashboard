@@ -1,6 +1,7 @@
 "use client";
 
 import SharedButton from "@/components/shared/button/SharedButton";
+import { SectionHeader } from "@/components/shared/header/SectionHeader";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
@@ -22,10 +23,8 @@ const LoginPage = () => {
   return (
     <div className="flex justify-center items-center min-h-screen  font-museomoderno">
       <div className="bg-[#F7F0E8] shadow-md rounded-xl px-8 py-16 w-full max-w-md sm:max-w-3xl">
-        <h2 className="text-2xl sm:text-3xl xl:text-[56px] font-semibold text-center mb-6 text-gray-900">
-          Welcome Back
-        </h2>
-
+        <h2 className="text-2xl sm:text-3xl xl:text-[56px] font-semibold text-center mb-6 text-gray-900"></h2>
+        <SectionHeader title="Welcome Back" />
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Email Field */}
           <div className="flex flex-col space-y-3">

@@ -2,7 +2,7 @@ import LoginPage from "@/components/authPages/loginPage/LoginPage";
 
 const Login = () => {
   return (
-    <div>
+    <div className="px-5">
       <LoginPage />
     </div>
   );

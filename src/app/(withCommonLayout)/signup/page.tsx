@@ -2,7 +2,7 @@ import SignupPage from "@/components/authPages/signupPage/SignupPage";
 
 const Signup = () => {
   return (
-    <div>
+    <div className="px-5">
       <SignupPage />
     </div>
   );
