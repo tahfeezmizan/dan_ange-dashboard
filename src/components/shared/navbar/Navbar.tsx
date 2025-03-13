@@ -15,8 +15,6 @@ const items: MenuProps["items"] = [
     label: (
       <Link
         href="/login"
-        onMouseEnter={(e) => (e.currentTarget.style.background = "")}
-        onMouseLeave={(e) => (e.currentTarget.style.background = "")}
         className="bg-gradient-to-r from-[#F9AB7FCC] to-white uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno transition-all duration-300"
       >
         LOG IN
@@ -28,8 +26,6 @@ const items: MenuProps["items"] = [
     label: (
       <Link
         href="/sign-up"
-        onMouseEnter={(e) => (e.currentTarget.style.background = "")}
-        onMouseLeave={(e) => (e.currentTarget.style.background = "")}
         className="bg-gradient-to-r from-[#F9AB7FCC] to-white uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno transition-all duration-300"
       >
         SIGN UP
@@ -40,6 +36,7 @@ const items: MenuProps["items"] = [
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // New state for profile menu
 
   return (
     <div className="bg-secondary text-white font-museomoderno mx-auto text-3xl">
@@ -62,9 +59,7 @@ const Navbar = () => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              className={`w-6 h-6 transition-transform duration-300 ${
-                isMenuOpen ? "" : ""
-              }`}
+              className="w-6 h-6"
             >
               <path
                 strokeLinecap="round"
@@ -81,7 +76,7 @@ const Navbar = () => {
           </Link>
           <Link
             className="text-base font-semibold leading-[25px]"
-            href="/about"
+            href="/about-us"
           >
             About Us
           </Link>
@@ -109,14 +104,14 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3 xl:gap-6">
-          {/* cart */}
+          {/* Cart */}
           <div className="relative cursor-pointer">
             <Image width={24} height={24} src={cartIcon} alt="Cart" />
             <span className="absolute w-4 h-4 top-0 right-0 p-1 bg-primary rounded-full font-medium capitalize text-[8px] flex justify-center items-center">
               3
             </span>
           </div>
-          {/* profile */}
+          {/* Profile */}
           <Space direction="vertical">
             <Space wrap>
               <Dropdown
@@ -134,8 +129,13 @@ const Navbar = () => {
                 }}
                 placement="bottom"
                 arrow
+                open={isDropdownOpen} // Control dropdown visibility
+                onOpenChange={setIsDropdownOpen} // Toggle dropdown
               >
-                <div className="bg-primary p-1 md:p-3 rounded-full cursor-pointer">
+                <div
+                  className="bg-primary p-1 md:p-3 rounded-full cursor-pointer"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)} // Toggle menu on click
+                >
                   <Image
                     width={24}
                     height={24}
