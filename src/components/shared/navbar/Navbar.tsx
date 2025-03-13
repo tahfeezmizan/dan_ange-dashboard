@@ -83,13 +83,10 @@ const Navbar = () => {
           <Link className="text-base font-semibold leading-[25px]" href="/shop">
             Shop
           </Link>
-          <Link
-            className="text-base font-semibold leading-[25px]"
-            href="/partners"
-          >
+          <Link className="text-base font-semibold leading-[25px]" href="/">
             Partners
           </Link>
-          <Link className="text-base font-semibold leading-[25px]" href="/faq">
+          <Link className="text-base font-semibold leading-[25px]" href="/">
             FAQ’s
           </Link>
         </div>
@@ -150,40 +147,34 @@ const Navbar = () => {
         }`}
       >
         <Link
-          className="block text-base font-semibold leading-[25px] py-2"
+          className="block text-base font-semibold leading-[25px] px-4  py-3"
           href="/"
         >
           Home
         </Link>
         <Link
-          className="block text-base font-semibold leading-[25px] py-2"
-          href="/about"
+          className="block text-base font-semibold leading-[25px] px-4  py-3"
+          href="/about-us"
         >
           About Us
         </Link>
         <Link
-          className="block text-base font-semibold leading-[25px] py-2"
-          href="/how-it-works"
+          className="block text-base font-semibold leading-[25px]  px-4 py-3"
+          href="/shop"
         >
-          How It Works
+          Shop
         </Link>
         <Link
-          className="block text-base font-semibold leading-[25px] py-2"
-          href="/creat-a-chance"
-        >
-          Create A Chance
-        </Link>
-        <Link
-          className="block text-base font-semibold leading-[25px] py-2"
-          href="/partners"
+          className="block text-base font-semibold leading-[25px] px-4  py-3"
+          href="/"
         >
           Partners
         </Link>
         <Link
-          className="block text-base font-semibold leading-[25px] py-2"
-          href="/spin"
+          className="block text-base font-semibold leading-[25px] px-4  py-3"
+          href="/"
         >
-          Spin
+          FAQ’s
         </Link>
       </div>
     </div>
