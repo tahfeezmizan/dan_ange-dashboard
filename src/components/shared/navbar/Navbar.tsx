@@ -25,7 +25,7 @@ const items: MenuProps["items"] = [
     key: "2",
     label: (
       <Link
-        href="/sign-up"
+        href="/signup"
         className="bg-gradient-to-r from-[#F9AB7FCC] to-white uppercase text-base font-bold leading-[25px] rounded-[32px] py-4 px-8 font-museomoderno transition-all duration-300"
       >
         SIGN UP
