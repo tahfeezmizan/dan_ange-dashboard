@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { HiOutlineTrash } from "react-icons/hi";
 import SharedButton from "../button/SharedButton";
+import Link from "next/link";
 
 const CartDropdown = () => {
   const [cartItems, setCartItems] = useState([
@@ -83,9 +84,9 @@ const CartDropdown = () => {
           <span>TOTAL:</span>
           <span>${calculateTotal()}</span>
         </div>
-        <div className="mt-10">
+        <Link href="/billing-information" className="mt-10">
           <SharedButton text="check out" />
-        </div>
+        </Link>
       </div>
     </div>
   );

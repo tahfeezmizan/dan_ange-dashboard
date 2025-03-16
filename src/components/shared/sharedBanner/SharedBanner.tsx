@@ -5,7 +5,7 @@ import bg from "@/assets/section-top.png";
 
 interface SharedBannerProps {
   title: string;
-  breadcrumb: string;
+  breadcrumb: string | string[];
   children?: React.ReactNode;
 }
 
@@ -14,6 +14,19 @@ const SharedBanner: React.FC<SharedBannerProps> = ({
   breadcrumb,
   children,
 }) => {
+  // If breadcrumb is an array, map it with arrows; else display the single breadcrumb
+  const renderBreadcrumb = () => {
+    if (Array.isArray(breadcrumb)) {
+      return breadcrumb.map((item, index) => (
+        <span key={index} className="text-black">
+          {item}
+          {index < breadcrumb.length - 1 && " ➝ "}
+        </span>
+      ));
+    } else {
+      return <span className="text-black">{breadcrumb}</span>;
+    }
+  };
   return (
     <div className="relative font-museomoderno">
       {/* Background Section */}
@@ -31,7 +44,7 @@ const SharedBanner: React.FC<SharedBannerProps> = ({
             {title}
           </h1>
           <p className="text-black/60">
-            <span className="text-black">Home</span> ➝ {breadcrumb}
+            <span className="text-black">Home</span> ➝ {renderBreadcrumb()}
           </p>
         </div>
       </div>
