@@ -25,3 +25,12 @@ body {
 .ant-progress-circle-path {
   stroke: #005b96 !important;
 }
+/* Hide scrollbars for horizontal overflow */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

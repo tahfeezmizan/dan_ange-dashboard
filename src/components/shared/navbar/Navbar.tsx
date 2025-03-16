@@ -83,7 +83,10 @@ const Navbar = () => {
           <Link className="text-base font-semibold leading-[25px]" href="/shop">
             Shop
           </Link>
-          <Link className="text-base font-semibold leading-[25px]" href="/">
+          <Link
+            className="text-base font-semibold leading-[25px]"
+            href="/partners"
+          >
             Partners
           </Link>
           <Link className="text-base font-semibold leading-[25px]" href="/">
@@ -166,7 +169,7 @@ const Navbar = () => {
         </Link>
         <Link
           className="block text-base font-semibold leading-[25px] px-4  py-3"
-          href="/"
+          href="/partners"
         >
           Partners
         </Link>
