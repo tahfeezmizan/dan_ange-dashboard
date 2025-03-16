@@ -8,6 +8,7 @@ import profileIcon from "@/assets/profile.svg";
 import { useState } from "react";
 import type { MenuProps } from "antd";
 import { Dropdown, Space } from "antd";
+import CartDropdown from "../cartDropdown/CartDropdown";
 
 const items: MenuProps["items"] = [
   {
@@ -36,7 +37,8 @@ const items: MenuProps["items"] = [
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // New state for profile menu
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   return (
     <div className="bg-secondary text-white font-museomoderno mx-auto text-3xl">
@@ -96,12 +98,28 @@ const Navbar = () => {
 
         <div className="flex items-center gap-3 xl:gap-6">
           {/* Cart */}
-          <div className="relative cursor-pointer">
-            <Image width={24} height={24} src={cartIcon} alt="Cart" />
-            <span className="absolute w-4 h-4 top-0 right-0 p-1 bg-primary rounded-full font-medium capitalize text-[8px] flex justify-center items-center">
-              3
-            </span>
+          <div className="flex items-center gap-3 xl:gap-6">
+            {/* Cart Icon */}
+            <div
+              className="relative cursor-pointer"
+              onClick={() => setIsCartOpen(!isCartOpen)}
+            >
+              <Image
+                width={24}
+                height={24}
+                src={cartIcon}
+                alt="Cart"
+                className="w-7 h-7"
+              />
+              <span className="absolute w-4 h-4 top-0 right-0 p-1 bg-primary rounded-full font-medium capitalize text-[8px] flex justify-center items-center">
+                3
+              </span>
+            </div>
+
+            {/* Conditionally render the Cart dropdown */}
+            {isCartOpen && <CartDropdown />}
           </div>
+
           {/* Profile */}
           <Space direction="vertical">
             <Space wrap>
