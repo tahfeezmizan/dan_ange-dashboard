@@ -19,7 +19,7 @@ const CharityPartner = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       {/* Section Header */}
-      <SectionHeader title="Our Charity Partner" />
+      <SectionHeader title="Our charity partner." />
 
       {/* Charity Info */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mt-10">

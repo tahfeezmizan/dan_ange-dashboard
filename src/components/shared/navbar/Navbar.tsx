@@ -80,7 +80,7 @@ const Navbar = () => {
             className="text-base font-semibold leading-[25px]"
             href="/about-us"
           >
-            About Us
+            About us
           </Link>
           <Link className="text-base font-semibold leading-[25px]" href="/shop">
             Shop

@@ -17,13 +17,6 @@ const AboutUsPage = () => {
           opportunity.
         </h2>
 
-        <p className="text-center text-gray-600 mt-4">
-          Our mission is simple: to create meaningful impact while offering
-          something of value in return. Every day, you can explore and purchase
-          our digital products, with a portion of proceeds supporting incredible
-          charitable causes.
-        </p>
-
         <p className="text-center text-gray-600 mt-3">
           Our mission is simple: to create meaningful impact while offering
           something of value in return. Every day, you can explore and purchase

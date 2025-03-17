@@ -4,9 +4,9 @@ import React from "react";
 
 const Faq = () => {
   return (
-    <div className="min-h-screen">
+    <div className="">
       <FaqBanner />
-      <div className="container mx-auto mt-[350px] space-y-20">
+      <div className="container mx-auto mt-[80px] lg:mt-[330px]">
         <Faqs />
       </div>
     </div>

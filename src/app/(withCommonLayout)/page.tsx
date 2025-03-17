@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div>
       <Banner />
-      <div className="space-y-24">
+      <div className="mt-0 md:mt-10  xl:mt-40 space-y-24">
         <Prize />
         <CurrentPromotion />
         <ChoosePack />

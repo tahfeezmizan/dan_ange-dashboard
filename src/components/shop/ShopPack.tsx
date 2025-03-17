@@ -27,6 +27,7 @@ const ShopPack = () => {
       freeEntries: "8 FREE ENTRIES",
     },
   ];
+
   return (
     <div className="container mx-auto py-12 space-y-24 px-5">
       {" "}
@@ -53,7 +54,7 @@ const ShopPack = () => {
             </p>
 
             {/* Free Entries */}
-            <p className="text-4xl lg:text-5xl xl:text-4xl 2xl:text-[50px] font-museomoderno font-semibold mt-6">
+            <p className="text-4xl lg:text-5xl xl:text-4xl 2xl:text-[50px] h-16 font-museomoderno font-semibold mt-6">
               {pack.freeEntries}
             </p>
 

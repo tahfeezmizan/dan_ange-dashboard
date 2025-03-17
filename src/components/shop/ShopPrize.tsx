@@ -3,6 +3,7 @@ import first from "@/assets/home/first.png";
 import second from "@/assets/home/second.png";
 import third from "@/assets/home/third.png";
 import { SectionHeader } from "../shared/header/SectionHeader";
+
 const prizes = [
   {
     id: 1,
@@ -35,7 +36,7 @@ const prizes = [
 const ShopPrize = () => {
   return (
     <div className="container mx-auto px-4 space-y-16">
-      <SectionHeader title="Explore whats inside." />
+      <SectionHeader title="Explore what’s inside." />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {prizes.map((prize) => (
           <div

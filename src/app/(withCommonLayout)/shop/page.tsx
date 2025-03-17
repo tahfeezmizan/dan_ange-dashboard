@@ -8,7 +8,7 @@ const Shop = () => {
   return (
     <div className="min-h-screen">
       <ShopBanner />
-      <div className="container mx-auto mt-[300px] space-y-20">
+      <div className="container mx-auto lg:mt-[300px] space-y-20">
         <ShopPack />
         <ShopPrize />
       </div>

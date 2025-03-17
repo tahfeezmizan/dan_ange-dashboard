@@ -35,7 +35,7 @@ const PricingSection = () => {
     <div className="container mx-auto py-12 space-y-24 px-5">
       {/* Section Header */}
       <SectionHeader
-        title="Choose Your Pack"
+        title="Choose your pack."
         subtitle="Your chance to win is just a few clicks away. Remember, every purchase also supports the Humpty Dumpty Foundation so you’re making a difference while chasing your dreams."
       />
 

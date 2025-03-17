@@ -17,7 +17,7 @@ const Banner = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="min-h-[180vh] sm:min-h-[160vh] lg:min-h-[180vh] xl:min-h-[130vh] mt-10 xl:mt-20"
+      className=" mt-10 xl:mt-20 py-10"
     >
       <div className="container flex flex-col-reverse xl:flex-row items-center justify-between mx-auto gap-10 lg:gap-16">
         {/* Left Side Section */}

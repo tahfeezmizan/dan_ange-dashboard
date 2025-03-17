@@ -81,7 +81,7 @@ const Faqs = () => {
   }));
 
   return (
-    <div className="max-w-4xl mx-auto ">
+    <div className="mx-5 max-w-4xl lg:mx-auto ">
       <Collapse
         items={faqData}
         activeKey={activeKeys}

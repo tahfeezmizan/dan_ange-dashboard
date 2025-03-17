@@ -2,24 +2,13 @@
 
 import Image from "next/image";
 import logo from "@/assets/logo.svg";
-import { FaFacebookF, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io";
+import { IoLogoTiktok } from "react-icons/io5";
+import { FaSnapchatGhost } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="relative text-white px-5 mt-32 lg:mt-48 xl:mt-40 flex flex-col justify-end">
-      {/* Less rounded on small (`sm`) screens */}
-      <div
-        className="absolute bottom-0 left-0 w-full h-[80vh] md:hidden bg-secondary"
-        style={{ clipPath: "ellipse(100% 85% at 50% 100%)" }}
-      ></div>
-
-      {/* More rounded on `md`, `lg`, `xl` screens */}
-      <div
-        className="absolute bottom-0 left-0 w-full h-[95vh] hidden md:block xl:h-[90vh] 2xl:h-[70vh] bg-secondary"
-        style={{ clipPath: "ellipse(65% 70% at 50% 100%)" }}
-      ></div>
-
+    <footer className="relative bg-secondary text-white px-5 mt-32 flex flex-col justify-end">
       {/* Footer Content */}
       <div className="relative z-10 flex flex-col items-center text-center space-y-8 pb-10">
         <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-end space-y-6 text-center">
@@ -39,14 +28,9 @@ const Footer = () => {
                 href="#"
                 className="text-white border rounded-full p-2 transition"
               >
-                <FaFacebookF className="w-6 h-6" />
+                <FaSnapchatGhost className="w-6 h-6" />
               </a>
-              <a
-                href="#"
-                className="text-white border rounded-full p-2 transition"
-              >
-                <FaXTwitter className="w-6 h-6" />
-              </a>
+
               <a
                 href="#"
                 className="text-white border rounded-full p-2 transition"
@@ -57,7 +41,7 @@ const Footer = () => {
                 href="#"
                 className="text-white border rounded-full p-2 transition"
               >
-                <FaYoutube className="w-6 h-6" />
+                <IoLogoTiktok className="w-6 h-6" />
               </a>
             </div>
           </div>

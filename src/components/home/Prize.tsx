@@ -6,7 +6,7 @@ import { SectionHeader } from "../shared/header/SectionHeader";
 const prizes = [
   {
     id: 1,
-    title: "Grand prize",
+    title: "GRAND PRIZE",
     date: "23 June 2025",
     code: "P58964T1483",
     description: "Audi A3 valued at $50,000 thanks to Audi Australia.",
