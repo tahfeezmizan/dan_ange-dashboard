@@ -4,11 +4,14 @@ import Sider from "antd/es/layout/Sider";
 import { CiStopwatch } from "react-icons/ci";
 import { PiClipboardTextLight } from "react-icons/pi";
 
+
+const linkStyle = "flex items-center gap-3 text-xl"
+
 const items = [
   {
     key: "dashaobard",
     label: (
-      <span className="flex items-center gap-3 text-xl">
+      <span className={linkStyle}>
         <PiClipboardTextLight /> Dashaobard
       </span>
     ),
@@ -16,7 +19,7 @@ const items = [
   {
     key: "orderlist",
     label: (
-      <span className="flex items-center gap-3 text-xl">
+      <span className={linkStyle}>
         <PiClipboardTextLight /> Order List
       </span>
     ),
@@ -24,7 +27,7 @@ const items = [
   {
     key: "Home",
     label: (
-      <span className="flex items-center gap-3 text-xl">
+      <span className={linkStyle}>
         <CiStopwatch /> Home
       </span>
     ),
@@ -46,10 +49,10 @@ const items = [
   {
     key: "aboutus",
     label: (
-        <span className="flex items-center gap-3 text-xl">
-          <CiStopwatch /> About us
-        </span>
-      ),
+      <span className={linkStyle}>
+        <CiStopwatch /> About us
+      </span>
+    ),
   },
 ];
 
@@ -78,7 +81,7 @@ const MainLayout = () => {
         >
           <div className="">
             {/* <img src="/assets/dan_ange-dashboard.png" alt="" /> */}
-            <h1>Dan Ange</h1>
+            <h1 className="font-MuseoModerno">Dan Ange</h1>
           </div>
         </div>
         <Menu
