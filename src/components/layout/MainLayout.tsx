@@ -101,7 +101,6 @@ const MainLayout = () => {
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider
-      style={{width: "300px"}}
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
@@ -123,7 +122,7 @@ const MainLayout = () => {
         >
           <div className="">
             {/* <img src="/assets/dan_ange-dashboard.png" alt="" /> */}
-            <h1 className="font-MuseoModerno">Dan Ange</h1>
+            <h1 className="font-MuseoModerno text-2xl">Dan Ange</h1>
           </div>
         </div>
         <Menu
