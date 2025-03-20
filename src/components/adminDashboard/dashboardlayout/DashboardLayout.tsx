@@ -30,7 +30,12 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       icon: FaBlogger,
     },
     {
-      name: "Add New Blog",
+      name: "Order  List",
+      href: "/dashboard/add-new-blog",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "Home",
       href: "/dashboard/add-new-blog",
       icon: HiViewGridAdd,
     },
