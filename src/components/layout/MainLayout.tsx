@@ -2,10 +2,11 @@ import { Layout, Menu } from "antd";
 import { Content, Header } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
 import { CiStopwatch } from "react-icons/ci";
+import { IoWalletOutline } from "react-icons/io5";
 import { PiClipboardTextLight } from "react-icons/pi";
+import { SlBadge } from "react-icons/sl";
 
-
-const linkStyle = "flex items-center gap-3 text-xl"
+const linkStyle = "flex items-center gap-3 text-xl";
 
 const items = [
   {
@@ -17,7 +18,7 @@ const items = [
     ),
   },
   {
-    key: "orderlist",
+    key: "order-list",
     label: (
       <span className={linkStyle}>
         <PiClipboardTextLight /> Order List
@@ -33,11 +34,11 @@ const items = [
     ),
     children: [
       {
-        key: "createuser",
+        key: "create-user",
         label: "Create User",
       },
       {
-        key: "updateuser",
+        key: "update-user",
         label: "Update User",
       },
       {
@@ -47,10 +48,50 @@ const items = [
     ],
   },
   {
-    key: "aboutus",
+    key: "about-us",
     label: (
       <span className={linkStyle}>
         <CiStopwatch /> About us
+      </span>
+    ),
+  },
+  {
+    key: "shop",
+    label: (
+      <span className={linkStyle}>
+        <CiStopwatch /> Shop
+      </span>
+    ),
+  },
+  {
+    key: "become-partners",
+    label: (
+      <span className={linkStyle}>
+        <CiStopwatch /> Become a partners
+      </span>
+    ),
+  },
+  {
+    key: "customer",
+    label: (
+      <span className={linkStyle}>
+        <PiClipboardTextLight /> Customer
+      </span>
+    ),
+  },
+  {
+    key: "faq",
+    label: (
+      <span className={linkStyle}>
+        <SlBadge /> FAQ
+      </span>
+    ),
+  },
+  {
+    key: "payment",
+    label: (
+      <span className={linkStyle}>
+        <IoWalletOutline /> Payment
       </span>
     ),
   },
@@ -60,6 +101,7 @@ const MainLayout = () => {
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider
+      style={{width: "300px"}}
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
