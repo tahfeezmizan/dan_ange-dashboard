@@ -18,7 +18,7 @@ export default function TopBar({
 
         {/* Left Section */}
         <div className="lg:flex items-center gap-2 hidden h-14">
-          <span className="hidden sm:inline text-2xl font-semibold text-[#2620a0]">
+          <span className="hidden sm:inline text-2xl font-semibold">
             Welcome Back, <span className="text-red">Admin!</span>
           </span>
           <span className="text-xl">👋</span>
