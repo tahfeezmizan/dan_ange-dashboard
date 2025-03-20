@@ -25,18 +25,23 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
   const navLink = [
     {
-      name: "All Blogs",
-      href: "/dashboard/all-blogs",
+      name: "Dashboard",
+      href: "/dashboard",
       icon: FaBlogger,
     },
     {
       name: "Order  List",
-      href: "/dashboard/add-new-blog",
+      href: "/dashboard/orderlist",
       icon: HiViewGridAdd,
     },
     {
       name: "Home",
-      href: "/dashboard/add-new-blog",
+      href: "/dashboard/home",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "About us",
+      href: "/dashboard/about-us",
       icon: HiViewGridAdd,
     },
   ];
