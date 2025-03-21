@@ -44,6 +44,31 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       href: "/dashboard/about-us",
       icon: HiViewGridAdd,
     },
+    {
+      name: "Shop",
+      href: "/dashboard/shop",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "Become a partners",
+      href: "/dashboard/become-partners",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "Customer",
+      href: "/dashboard/customer",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "FAQ",
+      href: "/dashboard/faq",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "Payment",
+      href: "/dashboard/payment",
+      icon: HiViewGridAdd,
+    },
   ];
 
   return (
