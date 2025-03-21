@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Table } from "antd";
 
 interface DataType {
@@ -95,9 +95,11 @@ const columns = [
 export default function OrderListTable() {
   return (
     <Table
+      className="custom-table"
       dataSource={dataSource}
       columns={columns}
       pagination={false}
+      bordered={false}
     />
   );
 }
