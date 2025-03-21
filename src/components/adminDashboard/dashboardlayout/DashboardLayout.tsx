@@ -79,7 +79,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           navLink={navLink}
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
-          user={null} // replace with user object if available
+          user={null}
         />
       </div>
       <div className="w-full">

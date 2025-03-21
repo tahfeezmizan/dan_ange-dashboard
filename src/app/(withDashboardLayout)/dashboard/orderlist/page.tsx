@@ -67,7 +67,7 @@ const columns: ColumnsType<OrderData> = [
         }
         trigger={["click"]}
       >
-        <Button icon={<EllipsisOutlined />} shape="none" />
+        <Button icon={<EllipsisOutlined />} shape="circle" />
       </Dropdown>
     ),
   },
