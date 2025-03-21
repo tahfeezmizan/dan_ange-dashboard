@@ -1,11 +1,64 @@
-import React from 'react';
+"use client";
 
-const AboutUs = () => {
-    return (
-        <div>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, deleniti corrupti vero ipsam natus enim suscipit, reprehenderit recusandae quidem reiciendis totam commodi facilis obcaecati rerum aut possimus quae qui quasi?
-        </div>
-    );
-};
+import { useForm } from "react-hook-form";
+import { Input, Button, Upload, Card } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+import { FaRegPenToSquare } from "react-icons/fa6";
 
-export default AboutUs;
+interface FormData {
+  title: string;
+  description: string;
+}
+
+export default function AboutUs() {
+  const { register, handleSubmit, setValue } = useForm<FormData>();
+
+  const onSubmit = (data: FormData) => {
+    console.log("Form Data:", data);
+  };
+
+  return (
+    <div className="">
+      <div className="">
+        <h2 className="text-3xl font-semibold font-museomoderno mb-6">
+          About us
+        </h2>
+      </div>
+
+      <Card className="bg-[#F7F0E8] w-[510px]">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <div>
+            <div className="flex items-center justify-between mb-3">
+              <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase">
+                Title
+              </label>
+              <div className="text-lg">
+                <FaRegPenToSquare />
+              </div>
+            </div>
+            <Input
+              {...register("title")}
+              placeholder="Enter a title"
+              className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
+            />
+
+            <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
+              Description
+            </label>
+            <Input.TextArea
+              {...register("description")}
+              placeholder="Description"
+              className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
+            />
+          </div>
+
+          <div className="flex justify-end">
+            <button className="text-base px-8 py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
+              save
+            </button>
+          </div>
+        </form>
+      </Card>
+    </div>
+  );
+}
