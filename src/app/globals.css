@@ -34,3 +34,23 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+
+
+
+/* Apply styles to only the table header */
+.custom-table .ant-table-thead > tr > th {
+  border-bottom: 1px solid #d9d9d9 !important; 
+}
+
+/* Remove all other borders */
+.custom-table .ant-table,
+.custom-table .ant-table-container,
+.custom-table .ant-table-cell,
+.custom-table .ant-table-tbody > tr > td {
+  border: none !important;
+}
+
+.custom-table .ant-table-tbody > tr:hover > td {
+  background-color: #fafafa; /* Subtle hover effect */
+}
