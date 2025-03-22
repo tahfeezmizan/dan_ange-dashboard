@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, Switch } from "antd";
+import { Card } from "antd";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 const pricingData = [

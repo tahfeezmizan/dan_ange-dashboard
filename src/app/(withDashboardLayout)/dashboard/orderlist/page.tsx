@@ -76,7 +76,7 @@ const columns: ColumnsType<OrderData> = [
 const OrderList = () => {
   return (
     <div>
-      <h2 className="text-3xl font-semibold font-museomoderno mb-8">
+      <h2 className="text-3xl font-semibold font-museomoderno mb-8 overflow-x-auto">
         Order List
       </h2>
       <Table
@@ -85,6 +85,7 @@ const OrderList = () => {
         columns={columns}
         pagination={{ pageSize: 10, total: 286, showSizeChanger: true }}
         bordered={false}
+        scroll={{ x: "max-content" }}
       />
     </div>
   );

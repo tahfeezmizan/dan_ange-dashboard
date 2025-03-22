@@ -23,10 +23,11 @@ const data = [
 
 const OverviewChart: React.FC = () => {
   return (
-    <div className="bg-white p-8 rounded-xl  w-full">
-      <div className="flex justify-between items-center mb-4">
+    <div className="bg-white p-4 md:p-8 rounded-xl w-full overflow-x-auto">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
         <h2 className="text-base text-[#4E4E4E] font-museomoderno">Overview</h2>
-        <div className="flex items-center gap-4 text-sm">
+
+        <div className="flex flex-wrap items-center gap-4 text-sm">
           <div className="flex items-center gap-2 font-museomoderno text-base text-[#4E4E4E]">
             <span className="w-3 h-3 bg-[#0000FF] rounded-full"></span>
             <span>Payment</span>
@@ -36,8 +37,9 @@ const OverviewChart: React.FC = () => {
             <span>Pack Booking</span>
           </div>
         </div>
+
         <button className="flex items-center gap-1 font-museomoderno px-3 py-1 rounded-md text-[#4E4E4E]">
-          <select id="dates" className="outline-none">
+          <select id="dates" className="outline-none bg-transparent">
             <option value="weekly">Weekly</option>
             <option value="monthly">Monthly</option>
             <option value="yearly">Yearly</option>
@@ -45,32 +47,34 @@ const OverviewChart: React.FC = () => {
         </button>
       </div>
 
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart
-          data={data}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis tickFormatter={(value) => `${value}`} />
-          <Tooltip />
-          <Legend />
-          <Line
-            type="monotone"
-            dataKey="payment"
-            stroke="#0000FF"
-            strokeWidth={2}
-            dot={{ fill: "#0000FF", r: 4 }}
-          />
-          <Line
-            type="monotone"
-            dataKey="booking"
-            stroke="#008000"
-            strokeWidth={2}
-            dot={{ fill: "#008000", r: 4 }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      <div className="w-full h-[250px] sm:h-[300px] md:h-[350px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart
+            data={data}
+            margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" tick={{ fontSize: 12 }} />
+            <YAxis tick={{ fontSize: 12 }} />
+            <Tooltip />
+            <Legend wrapperStyle={{ fontSize: "12px" }} />
+            <Line
+              type="monotone"
+              dataKey="payment"
+              stroke="#0000FF"
+              strokeWidth={2}
+              dot={{ fill: "#0000FF", r: 4 }}
+            />
+            <Line
+              type="monotone"
+              dataKey="booking"
+              stroke="#008000"
+              strokeWidth={2}
+              dot={{ fill: "#008000", r: 4 }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };

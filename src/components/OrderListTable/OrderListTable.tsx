@@ -94,12 +94,15 @@ const columns = [
 
 export default function OrderListTable() {
   return (
-    <Table
-      className="custom-table"
-      dataSource={dataSource}
-      columns={columns}
-      pagination={false}
-      bordered={false}
-    />
+    <div className="overflow-x-auto">
+      <Table
+        className="custom-table"
+        dataSource={dataSource}
+        columns={columns}
+        pagination={false}
+        bordered={false}
+        scroll={{ x: "max-content" }}
+      />
+    </div>
   );
 }

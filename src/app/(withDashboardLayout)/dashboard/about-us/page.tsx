@@ -24,7 +24,7 @@ export default function AboutUs() {
         </h2>
       </div>
 
-      <Card className="bg-[#F7F0E8] w-[510px]">
+      <Card className="bg-[#F7F0E8] w-auto md:w-[510px]">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <div className="flex items-center justify-between mb-3">
