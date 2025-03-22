@@ -86,7 +86,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="sticky top-0 z-40">
           <TopBar setIsOpen={setIsOpen} isOpen={isOpen} />
         </div>
-        <div className="xl:p-8">{children}</div>
+        <div className="p-5 xl:p-8 ">{children}</div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import HeroContentForm from "@/components/shared/HeroContentForm/HeroContentForm";
 import NextPrizeForm from "@/components/shared/NextPrizeForm/NextPrizeForm";
+import Switcher from "@/components/shared/Switcher/Switcher";
 import React from "react";
 
 const DashboardHome = () => {
@@ -18,6 +19,8 @@ const DashboardHome = () => {
         </h2>
         <NextPrizeForm />
       </div>
+
+      <Switcher />
     </div>
   );
 };

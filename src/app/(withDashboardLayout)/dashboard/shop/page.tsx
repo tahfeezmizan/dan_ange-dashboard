@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import { Input, Card } from "antd";
 import { FaRegPenToSquare } from "react-icons/fa6";
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
+import PricingCard from "@/components/shared/PricingCard/PricingCard";
+import Switcher from "@/components/shared/Switcher/Switcher";
+import ProductCard from "@/components/shared/ProductCard/ProductCard";
 
 interface FormData {
-  title: string;
   description: string;
 }
 
@@ -25,7 +27,7 @@ export default function Shop() {
         </h2>
       </div>
 
-      <Card className="bg-[#F7F0E8] w-[510px]">
+      <Card className="bg-[#F7F0E8] w-full md:w-[510px]">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <div className="flex items-center justify-between mb-3">
@@ -44,14 +46,27 @@ export default function Shop() {
           </div>
 
           <div className="flex justify-end">
-            <button className="text-base px-8 py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
+            <button className="text-base px-6 md:px-8 py-2 md:py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
               save
             </button>
           </div>
         </form>
       </Card>
 
-      <SectionTitle title="Shop" buttonTitle="Create a pack" link="#" />
+      <div className="">
+        <SectionTitle title="Shop" buttonTitle="Create a pack" link="#" />
+        <PricingCard />
+        <Switcher />
+      </div>
+
+      <div className="">
+        <SectionTitle
+          title="Explore what's inside"
+          buttonTitle="Create a  Products"
+          link="#"
+        />
+        <ProductCard />
+      </div>
     </div>
   );
 }
