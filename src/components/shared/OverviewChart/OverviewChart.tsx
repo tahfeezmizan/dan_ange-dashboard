@@ -10,7 +10,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { ChevronDown } from "lucide-react";
 
 const data = [
   { name: "Sat", payment: 600, booking: 200 },

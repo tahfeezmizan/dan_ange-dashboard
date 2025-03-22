@@ -8,7 +8,7 @@ import profileIcon from "@/assets/profile.svg";
 import { useState } from "react";
 import type { MenuProps } from "antd";
 import { Dropdown, Space } from "antd";
-import CartDropdown from "../cartDropdown/CartDropdown";
+
 
 const items: MenuProps["items"] = [
   {
@@ -117,7 +117,7 @@ const Navbar = () => {
             </div>
 
             {/* Conditionally render the Cart dropdown */}
-            {isCartOpen && <CartDropdown />}
+            {/* {isCartOpen && <CartDropdown />} */}
           </div>
 
           {/* Profile */}

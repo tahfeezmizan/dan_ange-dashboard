@@ -1,8 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Input, Button, Upload, Card } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+import { Input, Card } from "antd";
 import { FaRegPenToSquare } from "react-icons/fa6";
 
 interface FormData {
@@ -15,7 +14,7 @@ interface FormData {
 }
 
 export default function NextPrizeForm() {
-  const { register, handleSubmit, setValue } = useForm<FormData>();
+  const { register, handleSubmit } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
     console.log("Form Data:", data);
