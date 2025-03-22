@@ -1,24 +1,23 @@
 "use client";
-import { Table, Button } from "antd";
-import { CiViewList } from "react-icons/ci";
+import { Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
 
 interface OrderData {
   key: string;
   name: string;
-  country: string;
+  massage: string;
   email: string;
-  packName: string;
-  donated: string;
+  phonenumber: string;
+  partnershiptype: string;
 }
 
 const dataSource: OrderData[] = Array.from({ length: 10 }, (_, index) => ({
   key: `${index + 1}`,
   name: "Jenny Wilson",
-  country: "Bangladesh, Dhaka",
+  massage: "I’d love to explore See more",
   email: "demoemail123@example.com",
-  packName: "Essential pack",
-  donated: "$10",
+  phonenumber: "+ 123 456 789",
+  partnershiptype: "Influencer Partner",
 }));
 
 const columns: ColumnsType<OrderData> = [
@@ -34,9 +33,9 @@ const columns: ColumnsType<OrderData> = [
     key: "name",
   },
   {
-    title: "Country",
-    dataIndex: "country",
-    key: "country",
+    title: "Massage",
+    dataIndex: "massage",
+    key: "massage",
   },
   {
     title: "Email",
@@ -44,30 +43,20 @@ const columns: ColumnsType<OrderData> = [
     key: "email",
   },
   {
-    title: "Pack name",
-    dataIndex: "packName",
-    key: "packName",
+    title: "Phone number",
+    dataIndex: "phonenumber",
+    key: "phonenumber",
   },
   {
-    title: "Donated",
-    dataIndex: "donated",
-    key: "donated",
-  },
-  {
-    title: "Action",
-    key: "action",
-    render: () => (
-      <Button className="border-none" icon={<CiViewList size={30} />} />
-    ),
+    title: "Partnership Type",
+    dataIndex: "partnershiptype",
+    key: "partnershiptype",
   },
 ];
 
-const OrderList = () => {
+export default function PartnerList() {
   return (
     <div>
-      <h2 className="text-3xl font-semibold font-museomoderno mb-8">
-        Order List
-      </h2>
       <Table
         className="custom-table"
         dataSource={dataSource}
@@ -78,6 +67,4 @@ const OrderList = () => {
       />
     </div>
   );
-};
-
-export default OrderList;
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Input,  Card } from "antd";
+import { Input, Card } from "antd";
 import { FaRegPenToSquare } from "react-icons/fa6";
 
 interface FormData {
@@ -10,9 +10,9 @@ interface FormData {
 }
 
 export default function AboutUs() {
-  const { register, handleSubmit, } = useForm<FormData>();
+  const { register, handleSubmit } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: FormData) => {  // <-- Use FormData instead of any
     console.log("Form Data:", data);
   };
 

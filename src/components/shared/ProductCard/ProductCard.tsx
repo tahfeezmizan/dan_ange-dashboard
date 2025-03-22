@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBinLine } from "react-icons/ri";
-import productImg from '../../../assets/product-img.png'
+import productImg from "../../../assets/product-img.png";
 
 interface Product {
   image: string;
@@ -36,7 +36,7 @@ const productData: Product[] = [
   },
   {
     image: "https://ibb.co.com/rKM3kZ5f",
-    id: "3",
+    id: "4", // Fixed duplicate ID issue
     title: "PRIZE NAME",
     description:
       "Win big and life-changing rewards! From luxury cars, dream vacations, to huge cash prizes see more",
@@ -46,12 +46,18 @@ const productData: Product[] = [
 const ProductCard: React.FC = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-between text-center gap-6">
-      {productData.map((item) => (
+      {productData.map((item, index) => (
         <Card
-          key={item.id}
-          className="bg-[#F7F0E8]  h-full flex flex-col items-center justify-center"
+          key={item.id || index} // Ensuring unique key
+          className="bg-[#F7F0E8] h-full flex flex-col items-center justify-center"
         >
-          <Image src={productImg} width={284} height={236} className="w-full h-auto" alt={item.title} />
+          <Image
+            src={productImg}
+            width={284}
+            height={236}
+            className="w-full h-auto"
+            alt={item.title}
+          />
           <div className="space-y-2 mt-4">
             <h2 className="font-semibold text-xl font-museomoderno">
               {item.title}
