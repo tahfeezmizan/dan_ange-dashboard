@@ -73,7 +73,7 @@ export default function MainNavLink({
         </div>
       </nav>
       <div className="mt-auto px-4 space-y-1">
-        <button className="flex items-center gap-3 px-3 py-3 rounded-md cursor-pointer text-black font-bold text-lg hover:text-red-500">
+        <button className="flex items-center font-museomoderno gap-3 px-3 py-3 rounded-md cursor-pointer text-black font-bold text-lg hover:text-red-500">
           <IoLogOut className="min-w-6 min-h-6" />
           Log Out
         </button>
@@ -109,7 +109,7 @@ function NavLinkWithChildren({
             <Link
               key={child.name}
               href={child.href}
-              className={`block px-3 py-2 rounded-md text-sm text-black ${
+              className={`font-museomoderno block px-3 py-2 rounded-md text-base text-black ${
                 isActive(child.href)
                   ? "font-semibold bg-primary/20 rounded-xl text-black w-48"
                   : "text-gray-500"

@@ -7,7 +7,9 @@ const DashboardHomePage = () => {
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl md:text-3xl font-semibold font-museomoderno">Dashboard</h1>
+        <h1 className="text-2xl md:text-3xl font-semibold font-museomoderno">
+          Dashboard
+        </h1>
         <button className="text-sm md:text-base px-3 md:px-8 py-2 md:py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
           download csv file
         </button>
