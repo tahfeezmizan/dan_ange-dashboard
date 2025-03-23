@@ -3,7 +3,6 @@ import PartnerList from "@/components/shared/PartnerList/PartnerList";
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
 import React from "react";
 import { FiEdit } from "react-icons/fi";
-import { RiDeleteBinLine } from "react-icons/ri";
 
 const BecomePartners = () => {
   return (
@@ -11,7 +10,6 @@ const BecomePartners = () => {
       <div className="bg-white p-6 rounded-md text-center">
         <div className="flex items-end justify-end text-lg gap-2 -mb-5">
           <FiEdit />
-          <RiDeleteBinLine />
         </div>
         <h2 className="text-3xl font-museomoderno font-semibold mb-2">
           Become Our Partner
