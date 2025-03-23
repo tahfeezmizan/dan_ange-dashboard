@@ -7,10 +7,6 @@ const FAQ = () => {
     <div>
       <SectionTitle title="FAQ’s" buttonTitle="Add Faq " link="#" />
       <FaqCard />
-
-      <div className="">
-        
-      </div>
     </div>
   );
 };

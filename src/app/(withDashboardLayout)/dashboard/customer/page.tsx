@@ -6,7 +6,6 @@ const Customer = () => {
   return (
     <div className="space-y-8">
       <SectionTitle title="Customer list " buttonTitle="see all" link="#" />
-
       <CustomerList />
     </div>
   );

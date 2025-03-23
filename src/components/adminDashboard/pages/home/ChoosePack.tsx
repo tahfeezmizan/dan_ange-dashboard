@@ -28,8 +28,6 @@ const packs = [
 const ChoosePack = () => {
   return (
     <div className="container mx-auto px-5">
-      {/* Section Header */}
-
       {/* Pricing Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-16 mt-12">
         {packs.map((pack) => (

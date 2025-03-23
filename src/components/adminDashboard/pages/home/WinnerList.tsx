@@ -63,9 +63,12 @@ const WinnerList = () => {
             <th className="px-4 py-5 text-gray400">Action</th>
           </tr>
         </thead>
-        <tbody className="py-10">
+        <tbody className="">
           {winnersData.map((winner) => (
-            <tr key={winner.id} className=" hover:bg-gray-50">
+            <tr
+              key={winner.id}
+              className=" hover:bg-gray-50 text-sm font-light"
+            >
               <td className="px-4 py-2">
                 {winner.winnerImage ? (
                   <Image

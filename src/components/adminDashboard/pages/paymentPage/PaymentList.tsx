@@ -92,7 +92,7 @@ const PaymentList = () => {
         </thead>
         <tbody>
           {paymentData.map((payment) => (
-            <tr key={payment.id} className="font-light">
+            <tr key={payment.id} className="font-light text-sm">
               <td className="px-6 py-4">{payment.id}</td>
               <td className="px-6 py-4">{payment.payDate}</td>
               <td className="px-6 py-4">{payment.name}</td>
