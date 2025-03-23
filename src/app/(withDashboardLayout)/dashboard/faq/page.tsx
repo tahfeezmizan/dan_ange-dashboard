@@ -1,4 +1,4 @@
-import FaqCard from "@/components/shared/FaqCard/FaqCard";
+import FaqCard from "@/components/adminDashboard/pages/faqPage/FaqCard";
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
 import React from "react";
 

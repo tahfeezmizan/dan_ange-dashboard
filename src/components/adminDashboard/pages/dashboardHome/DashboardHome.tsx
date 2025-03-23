@@ -1,7 +1,7 @@
 import OrderListTable from "@/components/OrderListTable/OrderListTable";
-import OverviewChart from "@/components/shared/OverviewChart/OverviewChart";
+import OverviewChart from "@/components/adminDashboard/pages/dashboardHome/OverviewChart";
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
-import StatsCard from "@/components/shared/StatsCard/StatsCard";
+import StatsCard from "@/components/adminDashboard/pages/dashboardHome/StatsCard";
 
 const DashboardHomePage = () => {
   return (
@@ -15,9 +15,7 @@ const DashboardHomePage = () => {
         </button>
       </div>
       <StatsCard />
-
       <OverviewChart />
-
       <SectionTitle
         title="Order List"
         buttonTitle="see all"

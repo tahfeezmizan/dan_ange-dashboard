@@ -1,5 +1,5 @@
-import PartnerCard from "@/components/shared/PartnerCard/PartnerCard";
-import PartnerList from "@/components/shared/PartnerList/PartnerList";
+import PartnerCard from "@/components/adminDashboard/pages/partnerPage/PartnerCard";
+import PartnerList from "@/components/adminDashboard/pages/partnerPage/PartnerList";
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
 import React from "react";
 import { FiEdit } from "react-icons/fi";

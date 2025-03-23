@@ -1,4 +1,4 @@
-import CustomerList from "@/components/shared/CustomerList/CustomerList";
+import CustomerList from "@/components/adminDashboard/pages/customerPage/CustomerList";
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
 import React from "react";
 
