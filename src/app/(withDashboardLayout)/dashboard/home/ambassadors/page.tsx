@@ -1,7 +1,11 @@
-import React from "react";
+import Ambassador from "@/components/adminDashboard/pages/home/Ambassador";
 
 const Ambassadors = () => {
-  return <div>Ambassadors</div>;
+  return (
+    <div>
+      <Ambassador />
+    </div>
+  );
 };
 
 export default Ambassadors;
