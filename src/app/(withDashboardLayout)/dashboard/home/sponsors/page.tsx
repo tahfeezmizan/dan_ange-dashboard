@@ -1,7 +1,11 @@
-import React from "react";
+import Sponsor from "@/components/adminDashboard/pages/home/Sponsor";
 
 const Sponsors = () => {
-  return <div>Sponsors</div>;
+  return (
+    <div>
+      <Sponsor />
+    </div>
+  );
 };
 
 export default Sponsors;
