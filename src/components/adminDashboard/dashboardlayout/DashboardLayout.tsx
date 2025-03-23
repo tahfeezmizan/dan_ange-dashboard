@@ -38,6 +38,17 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       name: "Home",
       href: "/dashboard/home",
       icon: HiViewGridAdd,
+      children: [
+        { name: "Prizes", href: "/dashboard/home/prizes" },
+        { name: "How it works", href: "/dashboard/home/how-it-works" },
+        { name: "Choose your pack", href: "/dashboard/home/choose-pack" },
+        { name: "Ambassadors", href: "/dashboard/home/ambassadors" },
+        { name: "Charity partner", href: "/dashboard/home/charity-partner" },
+        { name: "Our impact", href: "/dashboard/home/our-impact" },
+        { name: "Winner", href: "/dashboard/home/winner" },
+        { name: "FAQ's", href: "/dashboard/home/faqs" },
+        { name: "Sponsors", href: "/dashboard/home/sponsors" },
+      ],
     },
     {
       name: "About us",
