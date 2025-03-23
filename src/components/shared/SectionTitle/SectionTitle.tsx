@@ -3,8 +3,8 @@ import React from "react";
 
 type SectionTitleProps = {
   title: string;
-  buttonTitle: string;
-  link: string;
+  buttonTitle?: string;
+  link?: string;
 };
 
 const SectionTitle: React.FC<SectionTitleProps> = ({
@@ -17,11 +17,14 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
       <h1 className="text-2xl md:text-3xl font-semibold font-museomoderno">
         {title}
       </h1>
-      <Link href={link}>
-        <button className="text-sm md:text-base px-3 md:px-8 py-2 md:py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
-          {buttonTitle}
-        </button>
-      </Link>
+      {/* Conditionally render the button if buttonTitle and link are provided */}
+      {buttonTitle && link && (
+        <Link href={link}>
+          <button className="text-sm md:text-base px-3 md:px-8 py-2 md:py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
+            {buttonTitle}
+          </button>
+        </Link>
+      )}
     </div>
   );
 };
