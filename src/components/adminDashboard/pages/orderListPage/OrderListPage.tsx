@@ -1,8 +1,9 @@
 "use client";
-import { Table, Button, Modal } from "antd";
+import { Table, Button } from "antd";
 import { CiViewList } from "react-icons/ci";
 import { useState } from "react";
 import type { ColumnsType } from "antd/es/table";
+import Modal from "@/components/shared/modal/Modal";
 
 interface OrderData {
   key: string;
@@ -79,7 +80,7 @@ const OrderList = () => {
         <Button
           className="border-none"
           icon={<CiViewList size={30} />}
-          onClick={() => openModal(record)} // Open modal with the selected record
+          onClick={() => openModal(record)}
         />
       ),
     },
@@ -98,13 +99,7 @@ const OrderList = () => {
 
       {/* Ant Design Modal */}
       {selectedRecord && (
-        <Modal
-          title="Order Details"
-          visible={isModalOpen}
-          onCancel={closeModal}
-          footer={null} // Remove footer for custom content
-          width={800} // You can adjust the width as needed
-        >
+        <Modal title="Order Details" isOpen={isModalOpen} onClose={closeModal}>
           <Table
             dataSource={[selectedRecord]}
             className="custom-table"
@@ -136,7 +131,7 @@ const OrderList = () => {
                 key: "purchaseDate",
               },
             ]}
-            pagination={false} 
+            pagination={false}
             bordered
             rowKey="key"
           />
