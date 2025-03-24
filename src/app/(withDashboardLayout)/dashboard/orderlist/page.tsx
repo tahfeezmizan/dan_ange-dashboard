@@ -1,4 +1,4 @@
-"use client";
+
 
 import OrderListPage from "@/components/adminDashboard/pages/orderListPage/OrderListPage";
 
