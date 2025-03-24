@@ -1,8 +1,9 @@
 "use client";
 import FaqCard from "@/components/adminDashboard/pages/faqPage/FaqCard";
+import Modal from "@/components/shared/modal/Modal";
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
 import Switcher from "@/components/shared/Switcher/Switcher";
-import { Card, Modal } from "antd";
+import { Card} from "antd";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaRegPenToSquare } from "react-icons/fa6";
@@ -44,6 +45,7 @@ const FAQ = () => {
 
   const onSubmit = (data: FormData) => {
     console.log("Form Data:", bottomData);
+    console.log(data)
   };
 
   const handleButtonSubmit = (e: React.FormEvent) => {
@@ -90,7 +92,7 @@ const FAQ = () => {
 
       <Switcher />
 
-      <Modal open={isModalOpen} onCancel={closeModal} title="" footer={null}>
+      <Modal isOpen={isModalOpen} onClose={closeModal} title="" >
         <div className="mb-4">
           {/* Form fields for title and description */}
           <div className="w-full flex flex-col gap-6">

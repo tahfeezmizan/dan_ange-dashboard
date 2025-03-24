@@ -1,7 +1,8 @@
 "use client";
 import partnerImg from "@/assets/partner-img.png";
+import Modal from "@/components/shared/modal/Modal";
 import { UploadOutlined } from "@ant-design/icons";
-import { Button, Card, Input, Modal, Upload } from "antd";
+import { Button, Card, Input, Upload } from "antd";
 import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -93,7 +94,7 @@ export default function PartnerCard() {
       </div>
 
       <div className="">
-        <Modal open={isModalOpen} onCancel={closeModal} title="" footer={null}>
+        <Modal isOpen={isModalOpen} onClose={closeModal} title="">
           <Card className="border-none">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -121,7 +122,7 @@ export default function PartnerCard() {
                   <h3 className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
                     image
                   </h3>
-                  <div className="bg-gray-100 flex items-center justify-center  rounded-lg border border-dashed border-gray-300 h-auto">
+                  <div className="bg-gray-100 h-36 flex items-center justify-center  rounded-lg border border-dashed border-gray-300">
                     <Upload
                       beforeUpload={(file) => {
                         setValue("image", file as unknown as FileList);
