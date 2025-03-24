@@ -17,8 +17,6 @@ const FAQ = () => {
   const [bottomData, setBottomData] = useState({
     bottomText: "",
   });
-  
-  type bottomData = any
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -44,9 +42,8 @@ const FAQ = () => {
 
   const { handleSubmit } = useForm<FormData>();
 
-  const onSubmit = (data: bottomData) => {
+  const onSubmit = (data: FormData) => {
     console.log("Form Data:", bottomData);
-    data;
   };
 
   const handleButtonSubmit = (e: React.FormEvent) => {
