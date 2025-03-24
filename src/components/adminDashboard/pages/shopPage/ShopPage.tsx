@@ -57,7 +57,10 @@ export default function ShopPage() {
 
       {/* Description Form */}
       <Card className="bg-[#F7F0E8] w-full md:w-[510px]">
-        <form onSubmit={handleSubmit(onSubmitDescription)} className="space-y-4">
+        <form
+          onSubmit={handleSubmit(onSubmitDescription)}
+          className="space-y-4"
+        >
           <div>
             <div className="flex items-center justify-between mb-3">
               <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
@@ -158,8 +161,8 @@ export default function ShopPage() {
       <div className="">
         <SectionTitle
           title="Explore what's inside"
-          buttonTitle="Create a  Product"
-          link="#"
+          buttonTitle="Create a product"
+          link="/dashboard/home/create-pack"
         />
         <ProductCard />
       </div>

@@ -16,11 +16,7 @@ const DashboardHomePage = () => {
       </div>
       <StatsCard />
       <OverviewChart />
-      <SectionTitle
-        title="Order List"
-        buttonTitle="see all"
-        link="dashboard/orderlist"
-      ></SectionTitle>
+      <SectionTitle title="Order List"></SectionTitle>
       <OrderListTable />
     </div>
   );
