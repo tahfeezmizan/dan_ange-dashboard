@@ -8,6 +8,7 @@ import Modal from "@/components/shared/modal/Modal";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { BiSolidImage } from "react-icons/bi";
+import { BsTrash } from "react-icons/bs";
 
 const Sponsor = () => {
   const sponsors = [
@@ -65,14 +66,19 @@ const Sponsor = () => {
       />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {sponsors.map((sponsor) => (
-          <div key={sponsor.id} className="flex justify-center bg-primary/20">
-            <Image
-              src={sponsor.image}
-              alt={sponsor.alt}
-              width={1000}
-              height={1000}
-              className="object-contain w-48 h-40"
-            />
+          <div key={sponsor.id} className="relative">
+            <div className="relative flex justify-center bg-primary/20">
+              <Image
+                src={sponsor.image}
+                alt={sponsor.alt}
+                width={1000}
+                height={1000}
+                className="object-contain w-48 h-40"
+              />
+            </div>
+            <div className="flex justify-end absolute top-4 right-4">
+              <BsTrash className="w-6 h-6" />
+            </div>
           </div>
         ))}
       </div>
