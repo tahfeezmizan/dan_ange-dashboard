@@ -1,5 +1,4 @@
 "use client";
-
 import Modal from "@/components/shared/modal/Modal";
 import { useState } from "react";
 import { Card } from "antd";
@@ -65,6 +64,7 @@ const HomeFaq = () => {
         onClick={openModal}
       />
 
+
       <div className="flex flex-col gap-6 ">
         {data.map((item, index) => (
           <Card key={index} className="bg-[#F7F0E8] p-1">
@@ -81,6 +81,8 @@ const HomeFaq = () => {
           </Card>
         ))}
       </div>
+
+
       <Modal isOpen={isModalOpen} onClose={closeModal} title="Add FAQ">
         <div className="mb-4">
           {/* Form fields for title and description */}

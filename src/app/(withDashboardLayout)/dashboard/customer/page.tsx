@@ -5,7 +5,7 @@ import React from "react";
 const Customer = () => {
   return (
     <div className="space-y-8">
-      <SectionTitle title="Customer list " buttonTitle="see all" link="#" />
+      <SectionTitle title="Customer list "/>
       <CustomerList />
     </div>
   );
