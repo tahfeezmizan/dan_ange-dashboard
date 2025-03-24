@@ -201,7 +201,6 @@ const Prize = () => {
                 ) : (
                   <div className="flex flex-col items-center justify-center text-gray-400">
                     <BiSolidImage className="w-16 h-16" />
-
                     <span>No Image Selected</span>
                   </div>
                 )}
