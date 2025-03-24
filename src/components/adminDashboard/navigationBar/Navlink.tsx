@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IoLogOut } from "react-icons/io5";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/logo.png";
 import { useState } from "react";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 
