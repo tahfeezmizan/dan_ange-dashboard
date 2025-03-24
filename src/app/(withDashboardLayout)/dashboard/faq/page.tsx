@@ -125,7 +125,6 @@ const FAQ = () => {
           </div>
         </div>
 
-        {/* Submit Button */}
         <div className="flex justify-center">
           <button
             onClick={handleButtonSubmit}
