@@ -51,7 +51,7 @@ const winnersData = [
 
 const WinnerList = () => {
   return (
-    <div className="overflow-x-auto p-6">
+    <div className="overflow-x-auto">
       <table className="min-w-full bg-white rounded-lg shadow-md">
         <thead className="p-10">
           <tr className="px-5 border-b text-left font-museomoderno text-gray500">
