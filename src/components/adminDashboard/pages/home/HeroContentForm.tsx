@@ -7,13 +7,19 @@ import { FaRegPenToSquare } from "react-icons/fa6";
 
 export default function HeroContentForm() {
   const [form] = Form.useForm();
-  const [fileList, setFileList] = useState([]);
+  const [fileList, setFileList] = useState<File[]>([]);
 
-  const onFinish = (values) => {
+  interface FormValues {
+    title: string;
+    subTitle?: string;
+    description?: string;
+  }
+
+  const onFinish = (values: FormValues) => {
     console.log("Form Data:", { ...values, image: fileList });
   };
 
-  const beforeUpload = (file) => {
+  const beforeUpload = (file: File) => {
     setFileList([file]);
     return false;
   };
