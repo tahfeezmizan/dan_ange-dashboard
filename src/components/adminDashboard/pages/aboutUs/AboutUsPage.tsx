@@ -1,7 +1,6 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { Input, Card } from "antd";
+import { Form, Input, Card, Button } from "antd";
 import { FaRegPenToSquare } from "react-icons/fa6";
 
 interface FormData {
@@ -10,11 +9,9 @@ interface FormData {
 }
 
 export default function AboutUsPage() {
-  const { register, handleSubmit } = useForm<FormData>();
-
-  const onSubmit = (data: FormData) => {
-    // <-- Use FormData instead of any
-    console.log("Form Data:", data);
+  const onFinish = (values: FormData) => {
+    // Log form data to the console
+    console.log("Form Data:", values);
   };
 
   return (
@@ -26,38 +23,40 @@ export default function AboutUsPage() {
       </div>
 
       <Card className="bg-[#F7F0E8] w-auto md:w-[510px]">
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div>
-            <div className="flex items-center justify-between mb-3">
-              <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase">
-                Title
-              </label>
-              <div className="text-lg">
-                <FaRegPenToSquare />
-              </div>
-            </div>
+        <Form onFinish={onFinish} layout="vertical" className="space-y-4">
+          <Form.Item
+            label="Title"
+            name="title"
+            rules={[{ required: true, message: "Please enter a title" }]}
+          >
             <Input
-              {...register("title")}
               placeholder="Enter a title"
               className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
+              prefix={<FaRegPenToSquare className="text-lg" />}
             />
+          </Form.Item>
 
-            <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
-              Description
-            </label>
+          <Form.Item
+            label="Description"
+            name="description"
+            rules={[{ required: true, message: "Please enter a description" }]}
+          >
             <Input.TextArea
-              {...register("description")}
               placeholder="Description"
               className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
             />
-          </div>
+          </Form.Item>
 
-          <div className="flex justify-end">
-            <button className="text-base px-8 py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
-              save
-            </button>
-          </div>
-        </form>
+          <Form.Item className="flex justify-end">
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="text-base px-8 py-6 border-none text-black rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7F] to-[#FFFFFF] "
+            >
+              Save
+            </Button>
+          </Form.Item>
+        </Form>
       </Card>
     </div>
   );

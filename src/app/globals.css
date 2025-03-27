@@ -35,12 +35,9 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
-
-
-
 /* Apply styles to only the table header */
 .custom-table .ant-table-thead > tr > th {
-  border-bottom: 1px solid #d9d9d9 !important; 
+  border-bottom: 1px solid #d9d9d9 !important;
 }
 
 /* Remove all other borders */
@@ -53,4 +50,13 @@ body {
 
 .custom-table .ant-table-tbody > tr:hover > td {
   background-color: #fafafa; /* Subtle hover effect */
+}
+
+Button {
+  /* background: linear-gradient(to right, #f9ab7fcc, #ffffff) !important; */
+  color: black !important;
+}
+Button:hover {
+  background: linear-gradient(to right, #f9ab7fcc, #ffffff) !important;
+  color: black !important;
 }

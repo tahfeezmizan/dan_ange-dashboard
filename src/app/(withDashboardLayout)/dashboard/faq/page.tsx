@@ -1,57 +1,31 @@
 "use client";
+
 import FaqCard from "@/components/adminDashboard/pages/faqPage/FaqCard";
 import Modal from "@/components/shared/modal/Modal";
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
 import Switcher from "@/components/shared/Switcher/Switcher";
-import { Card} from "antd";
+import { Card, Form, Input, Button } from "antd";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import { FaRegPenToSquare } from "react-icons/fa6";
 
-const FAQ = () => {
+const FAQ: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    bottomText: "",
-  });
-  const [bottomData, setBottomData] = useState({
-    bottomText: "",
-  });
+  const [form] = Form.useForm();
+  const [bottomForm] = Form.useForm();
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-    setBottomData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const { handleSubmit } = useForm<FormData>();
-
-  const onSubmit = (data: FormData) => {
-    console.log("Form Data:", bottomData);
-    console.log(data)
-  };
-
-  const handleButtonSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData);
+  const handleModalSubmit = (values: {
+    title: string;
+    description: string;
+  }) => {
+    console.log("Modal Form Data:", values);
     closeModal();
+  };
+
+  const handleBottomSubmit = (values: { bottomText: string }) => {
+    console.log("Bottom Form Data:", values);
   };
 
   return (
@@ -60,79 +34,81 @@ const FAQ = () => {
       <FaqCard />
 
       <div className="mt-6">
-        <Card className="bg-white w-full md:w-[510px]">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
-                  Bottom text :
-                </label>
-                <div className="text-lg">
-                  <FaRegPenToSquare />
-                </div>
+        <Card className="bg-[#F7F0E8] w-full md:w-[510px]">
+          <Form
+            form={bottomForm}
+            layout="vertical"
+            onFinish={handleBottomSubmit}
+          >
+            <div className="flex justify-between items-center -mb-1">
+              <h3 className="text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase">
+                Bottom text :
+              </h3>
+              <div className="float-end">
+                <FaRegPenToSquare className="text-lg" />
               </div>
-              <input
-                type="text"
-                name="bottomText"
-                value={bottomData.bottomText}
-                onChange={handleInputChange}
+            </div>
+
+            <Form.Item label={" "} name="bottomText">
+              <Input
                 className="mt-1 px-2 py-3 w-full bg-gray-200/60 rounded-lg"
                 placeholder="Enter title"
               />
-            </div>
+            </Form.Item>
 
             <div className="flex justify-end">
-              <button className="text-base px-6 md:px-8 py-2 md:py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
-                save
-              </button>
+              <Button
+                htmlType="submit"
+                className="text-base px-6 md:px-8 py-2 md:py-6 border-none rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF] transition-all duration-300 hover:from-[#F9AB7FCC] hover:to-[#F9AB7FCC]"
+              >
+                Save
+              </Button>
             </div>
-          </form>
+          </Form>
         </Card>
       </div>
 
       <Switcher />
 
-      <Modal isOpen={isModalOpen} onClose={closeModal} title="" >
-        <div className="mb-4">
-          {/* Form fields for title and description */}
-          <div className="w-full flex flex-col gap-6">
-            <div className="w-full mb-4">
-              <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
+      <Modal isOpen={isModalOpen} onClose={closeModal} title="">
+        <Form form={form} layout="vertical" onFinish={handleModalSubmit}>
+          <Form.Item
+            label={
+              <span className="text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase">
                 TITLE :
-              </label>
-              <input
-                type="text"
-                name="title"
-                value={formData.title}
-                onChange={handleInputChange}
-                className="mt-1 px-2 py-3 w-full bg-gray-200/60 rounded-lg"
-                placeholder="Enter title"
-              />
-            </div>
-
-            <div className="w-full mb-4">
-              <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
-                DESCRIPTION :
-              </label>
-              <textarea
-                name="description"
-                value={formData.description}
-                onChange={handleInputChange}
-                className="mt-1 px-2 py-3 w-full bg-gray-200/60 rounded-lg min-h-28"
-                placeholder="Enter description"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="flex justify-center">
-          <button
-            onClick={handleButtonSubmit}
-            className="text-gray300 text-sm md:text-base px-3 md:px-10 py-2 md:py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]"
+              </span>
+            }
+            name="title"
           >
-            Save
-          </button>
-        </div>
+            <Input
+              className="mt-1 px-2 py-3 w-full bg-gray-200/60 rounded-lg"
+              placeholder="Enter title"
+            />
+          </Form.Item>
+
+          <Form.Item
+            label={
+              <span className="text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase">
+                DESCRIPTION :
+              </span>
+            }
+            name="description"
+          >
+            <Input.TextArea
+              className="mt-1 px-2 py-3 w-full bg-gray-200/60 rounded-lg min-h-28"
+              placeholder="Enter description"
+            />
+          </Form.Item>
+
+          <div className="flex justify-center">
+            <Button
+              htmlType="submit"
+              className="text-gray300 text-sm md:text-base px-3 md:px-10 py-2 md:py-6 border-none rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]"
+            >
+              Save
+            </Button>
+          </div>
+        </Form>
       </Modal>
     </div>
   );

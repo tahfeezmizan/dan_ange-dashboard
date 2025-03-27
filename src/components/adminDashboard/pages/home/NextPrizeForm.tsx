@@ -6,7 +6,7 @@ import { FaRegPenToSquare } from "react-icons/fa6";
 export default function NextPrizeForm() {
   const [form] = Form.useForm();
 
-  const onFinish = (values: { [key: string]: any }) => {
+  const onFinish = (values: { startdate: string; starttime: string; socialmedialink: string; enddate: string; endtime: string }) => {
     console.log("Form Data:", values);
   };
 

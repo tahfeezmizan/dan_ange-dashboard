@@ -1,33 +1,26 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { Input, Card, Checkbox } from "antd";
-import { FaRegPenToSquare } from "react-icons/fa6";
-import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
 import PricingCard from "@/components/adminDashboard/pages/shopPage/PricingCard";
-import Switcher from "@/components/shared/Switcher/Switcher";
 import ProductCard from "@/components/adminDashboard/pages/shopPage/ProductCard";
 import Modal from "@/components/shared/modal/Modal";
+import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
+import Switcher from "@/components/shared/Switcher/Switcher";
+import { Button, Card, Checkbox, Form, Input } from "antd";
 import { useState } from "react";
-
-interface FormData {
-  description: string;
-}
+import { FaRegPenToSquare } from "react-icons/fa6";
 
 interface packInputs {
   title: string;
   price: string;
   description: string;
-  wallpaper: string;
-  calendar: string;
-  charity_video: string;
+  wallpaper: boolean;
+  calendar: boolean;
+  charity_video: boolean;
 }
 
 export default function ShopPage() {
-  const { register, handleSubmit } = useForm<FormData>();
+  const [form] = Form.useForm();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { register: createPack, handleSubmit: handleCreatePack } =
-    useForm<packInputs>();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -37,30 +30,19 @@ export default function ShopPage() {
     setIsModalOpen(false);
   };
 
-  // Logging the Description form data
-  const onSubmitDescription = (data: FormData) => {
-    console.log("Description Form Data:", data);
-  };
-
-  // Logging the Create Pack form data
-  const onSubmitPack = (data: packInputs) => {
-    console.log("Create Pack Form Data:", data);
+  const onFinish = (values: packInputs) => {
+    console.log("Create Pack Form Data:", values);
   };
 
   return (
     <div className="space-y-8">
       <div className="">
-        <h2 className="text-3xl font-semibold font-museomoderno">
-          Description
-        </h2>
+        <h2 className="text-3xl font-semibold font-museomoderno">Description</h2>
       </div>
 
       {/* Description Form */}
       <Card className="bg-[#F7F0E8] w-full md:w-[510px]">
-        <form
-          onSubmit={handleSubmit(onSubmitDescription)}
-          className="space-y-4"
-        >
+        <Form form={form} onFinish={onFinish} layout="vertical" className="space-y-4">
           <div>
             <div className="flex items-center justify-between mb-3">
               <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
@@ -70,19 +52,23 @@ export default function ShopPage() {
                 <FaRegPenToSquare />
               </div>
             </div>
-            <Input.TextArea
-              {...register("description")}
-              placeholder="Description"
-              className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
-            />
+            <Form.Item name="description">
+              <Input.TextArea
+                placeholder="Description"
+                className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
+              />
+            </Form.Item>
           </div>
 
           <div className="flex justify-end">
-            <button className="text-base px-6 md:px-8 py-2 md:py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
-              save
-            </button>
+            <Button
+              htmlType="submit"
+              className="text-base px-6 md:px-8 py-2 md:py-6 border-none rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]"
+            >
+              Save
+            </Button>
           </div>
-        </form>
+        </Form>
       </Card>
 
       <div className="">
@@ -94,67 +80,77 @@ export default function ShopPage() {
         <PricingCard />
         <Switcher />
 
-        {/* Create Pack  */}
+        {/* Create Pack Modal */}
         <Modal isOpen={isModalOpen} onClose={closeModal} title="Shop">
-          <form onSubmit={handleCreatePack(onSubmitPack)} className="space-y-4">
+          <Form form={form} onFinish={onFinish} layout="vertical" className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div>
-                <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
-                  Title:
-                </label>
-                <Input
-                  {...createPack("title")}
-                  placeholder="5AM"
-                  className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
-                />
-                <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
-                  Description:
-                </label>
-                <Input.TextArea
-                  {...createPack("description")}
-                  placeholder="Description"
-                  className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
-                />
+                <Form.Item
+                  name="title"
+                  label="Title"
+                  rules={[{ required: true, message: "Please enter a title" }]}
+                >
+                  <Input
+                    placeholder="5AM"
+                    className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  name="description"
+                  label="Description"
+                  rules={[{ required: true, message: "Please enter a description" }]}
+                >
+                  <Input.TextArea
+                    placeholder="Description"
+                    className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
+                  />
+                </Form.Item>
 
                 {/* Checkboxes */}
                 <div className="flex space-x-2 mt-6 uppercase">
-                  <Checkbox
-                    className="flex items-center text-sm font-semibold font-museomoderno"
-                    {...createPack("wallpaper")}
-                  >
-                    Wallpaper
-                  </Checkbox>
-                  <Checkbox
-                    className="flex items-center text-base font-semibold font-museomoderno"
-                    {...createPack("calendar")}
-                  >
-                    Calendar
-                  </Checkbox>
-                  <Checkbox
-                    className="flex items-center text-base font-semibold font-museomoderno"
-                    {...createPack("charity_video")}
-                  >
-                    Charity Video
-                  </Checkbox>
+                  <Form.Item name="wallpaper" valuePropName="checked">
+                    <Checkbox className="flex items-center text-sm font-semibold font-museomoderno">
+                      Wallpaper
+                    </Checkbox>
+                  </Form.Item>
+                  <Form.Item name="calendar" valuePropName="checked">
+                    <Checkbox className="flex items-center text-base font-semibold font-museomoderno">
+                      Calendar
+                    </Checkbox>
+                  </Form.Item>
+                  <Form.Item name="charity_video" valuePropName="checked">
+                    <Checkbox className="flex items-center text-base font-semibold font-museomoderno">
+                      Charity Video
+                    </Checkbox>
+                  </Form.Item>
                 </div>
               </div>
+
               <div>
-                <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
-                  Price:
-                </label>
-                <Input
-                  {...createPack("price")}
-                  placeholder="Enter a price"
-                  className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
-                />
-                <div className="flex justify-end mt-10">
-                  <button className="text-base px-8 py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
-                    Save
-                  </button>
-                </div>
+                <Form.Item
+                  name="price"
+                  label="Price"
+                  rules={[{ required: true, message: "Please enter a price" }]}
+                >
+                  <Input
+                    placeholder="Enter a price"
+                    className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
+                  />
+                </Form.Item>
               </div>
             </div>
-          </form>
+
+            {/* Save Button inside Modal */}
+            <div className="flex justify-end mt-6">
+              <Button
+                htmlType="submit"
+                className="text-base px-8 py-6 border-none rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]"
+              >
+                Save
+              </Button>
+            </div>
+          </Form>
         </Modal>
       </div>
 
