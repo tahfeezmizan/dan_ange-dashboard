@@ -1,0 +1,56 @@
+import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
+import { BsTrash } from "react-icons/bs";
+const impactData = [
+  {
+    id: 1,
+    value: "$27M",
+    description: "Raised for causes nationwide",
+  },
+  {
+    id: 2,
+    value: "7000+",
+    description: "Raffles completed",
+  },
+  {
+    id: 3,
+    value: "10M+",
+    description: "Raffles ticket purchased",
+  },
+  {
+    id: 4,
+    value: "$27M",
+    description: "Checkout conversion rate",
+  },
+];
+
+const ImpactList = () => {
+  return (
+    <div className="container mx-auto px-4">
+      {/* Section Header */}
+      <SectionTitle title="Impacts" />
+
+      {/* Impact Cards Grid */}
+      <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {impactData.map((item) => (
+          <div key={item.id} className="relative">
+            <div className="relative bg-[#F7F0E8] shadow-md rounded-lg px-6 py-10 text-center transition-transform duration-300 hover:scale-105 space-y-8">
+              {/* Value */}
+              <h3 className="text-4xl md:text-5xl font-bold font-museomoderno">
+                {item.value}
+              </h3>
+              {/* Description */}
+              <p className="text-gray400 text-sm md:text-base font-light mt-2">
+                {item.description}
+              </p>
+            </div>
+            <div className="absolute top-4 right-4 flex items-end justify-end text-lg">
+              <BsTrash className="w-6 h-6" />
+            </div>{" "}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ImpactList;

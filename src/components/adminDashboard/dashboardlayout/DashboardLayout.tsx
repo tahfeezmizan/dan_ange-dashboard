@@ -25,13 +25,60 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
   const navLink = [
     {
-      name: "All Blogs",
-      href: "/dashboard/all-blogs",
+      name: "Dashboard",
+      href: "/dashboard",
       icon: FaBlogger,
     },
     {
-      name: "Add New Blog",
-      href: "/dashboard/add-new-blog",
+      name: "Order  List",
+      href: "/dashboard/orderlist",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "Home",
+      href: "/dashboard/home",
+      icon: HiViewGridAdd,
+      children: [
+        { name: "Home Page", href: "/dashboard/home/home-page" },
+        { name: "Prizes", href: "/dashboard/home/prizes" },
+        { name: "How it works", href: "/dashboard/home/how-it-works" },
+        { name: "Choose your pack", href: "/dashboard/home/choose-pack" },
+        { name: "Ambassadors", href: "/dashboard/home/ambassadors" },
+        { name: "Charity partner", href: "/dashboard/home/charity-partner" },
+        { name: "Our impact", href: "/dashboard/home/our-impact" },
+        { name: "Winner", href: "/dashboard/home/winner" },
+        { name: "FAQ's", href: "/dashboard/home/faqs" },
+        { name: "Sponsors", href: "/dashboard/home/sponsors" },
+      ],
+    },
+    {
+      name: "About us",
+      href: "/dashboard/about-us",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "Shop",
+      href: "/dashboard/shop",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "Become a partners",
+      href: "/dashboard/become-partners",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "Customer",
+      href: "/dashboard/customer",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "FAQ",
+      href: "/dashboard/faq",
+      icon: HiViewGridAdd,
+    },
+    {
+      name: "Payment",
+      href: "/dashboard/payment",
       icon: HiViewGridAdd,
     },
   ];
@@ -44,14 +91,14 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           navLink={navLink}
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
-          user={null} // replace with user object if available
+          user={null}
         />
       </div>
       <div className="w-full">
         <div className="sticky top-0 z-40">
           <TopBar setIsOpen={setIsOpen} isOpen={isOpen} />
         </div>
-        <div className="xl:p-8">{children}</div>
+        <div className="p-5 xl:p-8 ">{children}</div>
       </div>
     </div>
   );
