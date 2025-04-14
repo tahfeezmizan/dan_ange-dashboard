@@ -5,15 +5,16 @@ import { CiStopwatch } from "react-icons/ci";
 import { IoWalletOutline } from "react-icons/io5";
 import { PiClipboardTextLight } from "react-icons/pi";
 import { SlBadge } from "react-icons/sl";
+import { Outlet } from "react-router-dom";
 
 const linkStyle = "flex items-center gap-3 text-xl";
 
 const items = [
   {
-    key: "dashaobard",
+    key: "dashboard",
     label: (
       <span className={linkStyle}>
-        <PiClipboardTextLight /> Dashaobard
+        <PiClipboardTextLight /> Dashboard
       </span>
     ),
   },
@@ -26,7 +27,7 @@ const items = [
     ),
   },
   {
-    key: "Home",
+    key: "home",
     label: (
       <span className={linkStyle}>
         <CiStopwatch /> Home
@@ -42,7 +43,7 @@ const items = [
         label: "Update User",
       },
       {
-        key: "deleteuser",
+        key: "delete-user",
         label: "Delete User",
       },
     ],
@@ -51,7 +52,7 @@ const items = [
     key: "about-us",
     label: (
       <span className={linkStyle}>
-        <CiStopwatch /> About us
+        <CiStopwatch /> About Us
       </span>
     ),
   },
@@ -64,10 +65,10 @@ const items = [
     ),
   },
   {
-    key: "become-partners",
+    key: "become-partner",
     label: (
       <span className={linkStyle}>
-        <CiStopwatch /> Become a partners
+        <CiStopwatch /> Become a Partner
       </span>
     ),
   },
@@ -101,6 +102,8 @@ const MainLayout = () => {
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider
+        width={260}
+        style={{ background: "#001529" }}
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
@@ -110,7 +113,6 @@ const MainLayout = () => {
           console.log(collapsed, type);
         }}
       >
-        <div style={{ color: "white" }} className="demo-logo-vertical" />
         <div
           style={{
             color: "white",
@@ -120,36 +122,22 @@ const MainLayout = () => {
             justifyContent: "center",
           }}
         >
-          <div className="">
-            {/* <img src="/assets/dan_ange-dashboard.png" alt="" /> */}
+          <div>
             <h1 className="font-MuseoModerno text-2xl">Dan Ange</h1>
           </div>
         </div>
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["4"]}
+          defaultSelectedKeys={["dashboard"]}
           items={items}
         />
       </Sider>
       <Layout>
-        <Header
-          style={{
-            padding: 0,
-          }}
-        />
-        <Content
-          style={{
-            margin: "24px 16px 0",
-          }}
-        >
-          <div
-            style={{
-              padding: 24,
-              minHeight: 360,
-            }}
-          >
-            content
+        <Header style={{ padding: 0 }} />
+        <Content style={{ margin: "24px 16px 0" }}>
+          <div style={{ padding: 24, minHeight: 360 }}>
+            <Outlet />
           </div>
         </Content>
       </Layout>
