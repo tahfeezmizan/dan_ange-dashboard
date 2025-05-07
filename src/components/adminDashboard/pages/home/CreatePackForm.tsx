@@ -1,6 +1,7 @@
 "use client";
 
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
+import { useCreateShopPrizeMutation } from "@/redux/feature/api/shop/ShopAPi";
 import React, { useState } from "react";
 
 const CreatePackForm = () => {
@@ -13,7 +14,7 @@ const CreatePackForm = () => {
     calendar: false,
     charityVideo: false,
   });
-
+  const [createPrize] = useCreateShopPrizeMutation();
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -33,9 +34,26 @@ const CreatePackForm = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
+
+    try {
+      const response = await createPrize(formData).unwrap();
+      console.log("Pack created successfully:", response);
+      // Reset form data after successful submission
+      setFormData({
+        title: "",
+        price: "",
+        description: "",
+        quantity: "",
+        wallpaper: false,
+        calendar: false,
+        charityVideo: false,
+      });
+    } catch (error) {
+      console.error("Error creating pack:", error);
+    }
   };
 
   return (

@@ -1,10 +1,10 @@
 "use client";
 
 import ProductCard from "@/components/adminDashboard/pages/shopPage/ProductCard";
-import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
 import ShopDescription from "./ShopDescription";
 import PackCards from "./PackCards";
 import CreatePack from "./CreatePack";
+import CreatePrize from "./CreatePrize";
 
 export default function ShopPage() {
   return (
@@ -15,7 +15,6 @@ export default function ShopPage() {
         </h2>
       </div>
       <ShopDescription />
-
       {/* Pack Cards..  */}
       <div>
         <CreatePack />
@@ -24,11 +23,7 @@ export default function ShopPage() {
       </div>
 
       <div className="">
-        <SectionTitle
-          title="Explore what's inside"
-          buttonTitle="Create a product"
-          link="/dashboard/home/create-pack"
-        />
+        <CreatePrize />
         <ProductCard />
       </div>
     </div>

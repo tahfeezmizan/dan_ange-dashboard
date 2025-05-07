@@ -116,64 +116,62 @@ export default function PartnerCard() {
         ))}
       </div>
 
-      <div className="">
-        <Modal isOpen={isModalOpen} onClose={closeModal} title="">
-          <Card className="border-none">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div>
-                  <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
-                    Title
-                  </label>
-                  <Input
-                    {...register("title")}
-                    placeholder="Enter a title"
-                    className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
-                  />
+      <Modal isOpen={isModalOpen} onClose={closeModal} title="">
+        <Card className="border-none">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div>
+                <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
+                  Title
+                </label>
+                <Input
+                  {...register("title")}
+                  placeholder="Enter a title"
+                  className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
+                />
 
-                  <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
-                    Sub Title
-                  </label>
-                  <Input
-                    {...register("subTitle")}
-                    placeholder="Enter a sub title"
-                    className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
-                  />
+                <label className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
+                  Sub Title
+                </label>
+                <Input
+                  {...register("subTitle")}
+                  placeholder="Enter a sub title"
+                  className="mb-4 bg-[#E9E9E9] py-3 px-5 outline-none font-poppins"
+                />
+              </div>
+
+              <div className="">
+                <h3 className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
+                  image
+                </h3>
+                <div className="bg-gray-100 h-36 flex items-center justify-center  rounded-lg border border-dashed border-gray-300">
+                  <Upload
+                    beforeUpload={(file) => {
+                      setValue("image", file as unknown as FileList);
+                      return false;
+                    }}
+                    showUploadList={false}
+                  >
+                    <Button
+                      icon={<UploadOutlined />}
+                      className="!bg-transparent border-0"
+                    >
+                      Upload Image
+                    </Button>
+                  </Upload>
                 </div>
 
-                <div className="">
-                  <h3 className="block text-[#4E4E4E] text-base font-museomoderno font-semibold uppercase mb-3">
-                    image
-                  </h3>
-                  <div className="bg-gray-100 h-36 flex items-center justify-center  rounded-lg border border-dashed border-gray-300">
-                    <Upload
-                      beforeUpload={(file) => {
-                        setValue("image", file as unknown as FileList);
-                        return false;
-                      }}
-                      showUploadList={false}
-                    >
-                      <Button
-                        icon={<UploadOutlined />}
-                        className="!bg-transparent border-0"
-                      >
-                        Upload Image
-                      </Button>
-                    </Upload>
-                  </div>
-
-                  {/* submit button  */}
-                  <div className="flex justify-end mt-6 ">
-                    <button className="text-base px-8 py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
-                      save
-                    </button>
-                  </div>
+                {/* submit button  */}
+                <div className="flex justify-end mt-6 ">
+                  <button className="text-base px-8 py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
+                    save
+                  </button>
                 </div>
               </div>
-            </form>
-          </Card>
-        </Modal>
-      </div>
+            </div>
+          </form>
+        </Card>
+      </Modal>
     </div>
   );
 }

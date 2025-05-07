@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import {
@@ -7,28 +6,28 @@ import {
 } from "@/redux/feature/api/aboutus/aboutUsApi";
 import { Card } from "antd";
 import AboutTitle from "./AboutTitle";
-import { ButtonLoading } from "@/components/shared/loading/Loading";
+import Loading, { ButtonLoading } from "@/components/shared/loading/Loading";
 import Modal from "@/components/shared/modal/Modal";
 import { FaEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
 export default function AboutUsPage() {
-  const { data: aboutData, isLoading: isFetching } =
-    useGetAboutUsQuery(undefined);
-  const [editAbout, { isLoading }] = useUpdateAboutUsMutation({});
+  const { data: aboutData, isLoading: isFetching } = useGetAboutUsQuery({});
+  const [editAbout, { isLoading }] = useUpdateAboutUsMutation();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
   });
-  const [currentImpactId, setCurrentImpactId] = useState<number | null>(null);
+  const [currentImpactId, setCurrentImpactId] = useState<string | null>(null);
 
   // Open Modal and set initial values
-  const openModal = (id: number) => {
-    const itemToEdit = aboutData?.data?.find((impact: any) => impact.id === id);
+  const openModal = () => {
+    const itemToEdit = aboutData?.data; // aboutData.data is an object
     if (itemToEdit) {
-      setCurrentImpactId(id); // Set the id of the item being edited
+      console.log(itemToEdit);
+      setCurrentImpactId(itemToEdit?.id); // Directly use the string id
       setFormData({
         title: itemToEdit.title,
         description: itemToEdit.description,
@@ -41,7 +40,7 @@ export default function AboutUsPage() {
   const closeModal = () => {
     setIsModalOpen(false);
     setFormData({ title: "", description: "" });
-    setCurrentImpactId(null);
+    setCurrentImpactId(null); // Reset the id to null
   };
 
   // Handle form input changes
@@ -76,42 +75,45 @@ export default function AboutUsPage() {
       }).unwrap();
 
       toast.success(res.message || "Update successful!");
-      closeModal(); // Close the modal after update
+      closeModal();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast.error(error?.data?.message || "Update failed");
     }
   };
 
   if (isFetching) {
-    return <div>Loading...</div>; // Display loading state while fetching data
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   }
+
+  // Rendering the data directly instead of using map
+  const aboutItem = aboutData?.data;
 
   return (
     <div>
       <AboutTitle />
       <div className="grid grid-cols-3 gap-10">
-        {aboutData?.data?.map(
-          (
-            item: { title: string; description: string; id: number },
-            index: number
-          ) => (
-            <Card key={index} className="bg-[#F7F0E8] p-1">
-              <div className="flex items-end justify-end text-lg gap-2 -mb-5">
-                <button
-                  onClick={() => openModal(item.id)} // Pass the correct item id
-                  className="flex items-end justify-end text-lg"
-                >
-                  <FaEdit className="w-5 h-5" />
-                </button>
-              </div>
-              <h3 className="text-2xl font-museomoderno font-semibold  mb-2">
-                {item?.title}
-              </h3>
-              <p className="text-base font-poppins font-light text-gray-700 leading-relaxed">
-                {item?.description}
-              </p>
-            </Card>
-          )
+        {aboutItem && (
+          <Card key={aboutItem.id} className="bg-[#F7F0E8] p-1">
+            <div className="flex items-end justify-end text-lg gap-2 -mb-5">
+              <button
+                onClick={openModal}
+                className="flex items-end justify-end text-lg"
+              >
+                <FaEdit className="w-5 h-5" />
+              </button>
+            </div>
+            <h3 className="text-2xl font-museomoderno font-semibold mb-2">
+              {aboutItem?.title}
+            </h3>
+            <p className="text-base font-poppins font-light text-gray-700 leading-relaxed">
+              {aboutItem?.description}
+            </p>
+          </Card>
         )}
       </div>
 

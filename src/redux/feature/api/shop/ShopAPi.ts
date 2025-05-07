@@ -33,7 +33,7 @@ const ShopApi = baseApi.injectEndpoints({
     // Get All Shop Packs Info's
     getAllShopPacks: builder.query({
       query: () => ({
-        url: `/shop-page-products`,
+        url: `/promotional-packs`,
         method: "GET",
       }),
       providesTags: ["ShopPack"],
@@ -41,7 +41,7 @@ const ShopApi = baseApi.injectEndpoints({
     // delete shop pack
     deleteShopPack: builder.mutation({
       query: (id) => ({
-        url: `/shop-page-products/${id}/delete`,
+        url: `/promotional-packs/${id}/delete`,
         method: "DELETE",
       }),
       invalidatesTags: ["ShopPack"],
@@ -49,7 +49,7 @@ const ShopApi = baseApi.injectEndpoints({
     // create shop pack
     createShopPack: builder.mutation({
       query: (data) => ({
-        url: `/shop-page-products/create`,
+        url: `/promotional-packs/create`,
         method: "POST",
         body: data,
       }),
@@ -58,7 +58,7 @@ const ShopApi = baseApi.injectEndpoints({
     // update shop pack
     updateShopPack: builder.mutation({
       query: ({ data, id }) => ({
-        url: `/shop-page-products/${id}/update`,
+        url: `/promotional-packs/${id}/update`,
         method: "PATCH",
         body: data,
       }),
@@ -66,6 +66,39 @@ const ShopApi = baseApi.injectEndpoints({
     }),
     // shop products ...
     // add shop product
+    // get all shop prizes/ products
+    getAllShopPrizes: builder.query({
+      query: () => ({
+        url: `/prizes`,
+        method: "GET",
+      }),
+      providesTags: ["ShopPrize"],
+    }),
+    createShopPrize: builder.mutation({
+      query: (data) => ({
+        url: `/prizes/create`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["ShopPrize"],
+    }),
+    // delete shop product
+    deleteShopPrize: builder.mutation({
+      query: (id) => ({
+        url: `prizes/${id}/delete`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["ShopPrize"],
+    }),
+    // update shop product
+    updateShopPrize: builder.mutation({
+      query: ({ data, id }) => ({
+        url: `/prizes/${id}/update`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["ShopPrize"],
+    }),
   }),
 });
 
@@ -77,4 +110,8 @@ export const {
   useDeleteShopPackMutation,
   useCreateShopPackMutation,
   useUpdateShopPackMutation,
+  useGetAllShopPrizesQuery,
+  useCreateShopPrizeMutation,
+  useDeleteShopPrizeMutation,
+  useUpdateShopPrizeMutation,
 } = ShopApi;

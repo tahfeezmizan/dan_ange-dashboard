@@ -43,7 +43,7 @@ const OrderList = () => {
 
   // Map API data to display in the table
   const dataSource: OrderData[] =
-    data?.data?.map((item: any) => ({
+    data?.data?.data?.map((item: any) => ({
       key: item.id,
       name: `${item.user?.firstName || ""} ${item.user?.lastName || ""}`.trim(),
       email: item.user?.email || "Not Available",

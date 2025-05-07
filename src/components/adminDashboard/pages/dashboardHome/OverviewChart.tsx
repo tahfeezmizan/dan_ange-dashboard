@@ -11,6 +11,7 @@ import {
   CartesianGrid,
   Legend,
   ResponsiveContainer,
+  Dot,
 } from "recharts";
 
 const OverviewChart: React.FC = () => {
@@ -29,30 +30,29 @@ const OverviewChart: React.FC = () => {
     isError,
   } = useGetDashboardQuery(timeRange);
   const chartData = response?.data || [];
-  console.log(chartData);
 
-  // Define colors and data keys for each metric
+  // Enhanced metrics configuration
   const metrics = [
     {
       key: "totalPrice",
       name: "Payment",
-      color: "#0000FF",
-      strokeDasharray: "0",
-      activeDot: { r: 6 },
+      color: "#0000FF", // Blue
+      dot: { r: 6, fill: "#0000FF" },
+      activeDot: { r: 8, fill: "#0000FF" },
     },
     {
-      key: "quantity",
+      key: "quantity", // Must match API response field exactly
       name: "Pack Booking",
-      color: "#22C55E",
-      strokeDasharray: "5 5",
-      activeDot: { r: 6 },
+      color: "#22C55E", // Green
+      dot: { r: 6, fill: "#22C55E" },
+      activeDot: { r: 8, fill: "#22C55E" },
     },
     {
       key: "entries",
       name: "Entries",
-      color: "#FF0000",
-      strokeDasharray: "3 4",
-      activeDot: { r: 6 },
+      color: "#FF0000", // Red
+      dot: { r: 6, fill: "#FF0000" },
+      activeDot: { r: 8, fill: "#FF0000" },
     },
   ];
 
@@ -69,15 +69,52 @@ const OverviewChart: React.FC = () => {
   };
 
   const formatXAxis = (tickItem: string) => {
-    if (timeRange === "monthly") {
-      return new Date(tickItem).toLocaleDateString("en-US", { month: "short" });
+    // For weekly and monthly, use the name directly
+    if (timeRange === "weekly" || timeRange === "monthly") {
+      return tickItem;
     }
+    // For yearly, try to parse as date
     if (timeRange === "yearly") {
-      return new Date(tickItem).toLocaleDateString("en-US", {
-        year: "numeric",
-      });
+      const date = new Date(tickItem);
+      if (!isNaN(date.getTime())) {
+        return date.toLocaleDateString("en-US", { year: "numeric" });
+      }
+      return tickItem;
     }
-    return new Date(tickItem).toLocaleDateString("en-US", { weekday: "short" });
+    return tickItem;
+  };
+
+  const formatTooltipLabel = (value: string) => {
+    // For weekly and monthly, use the name directly
+    if (timeRange === "weekly" || timeRange === "monthly") {
+      return value;
+    }
+    // For yearly, try to parse as date
+    if (timeRange === "yearly") {
+      const date = new Date(value);
+      if (!isNaN(date.getTime())) {
+        return date.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        });
+      }
+      return value;
+    }
+    return value;
+  };
+
+  // Custom dot component - shows only for values > 0
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const CustomDot = (props: any) => {
+    const { cx, cy, payload, metricKey } = props;
+    const value = payload[metricKey];
+
+    if (value === 0 || value === null || value === undefined) return null;
+
+    const metric = metrics.find((m) => m.key === metricKey);
+
+    return <Dot cx={cx} cy={cy} r={6} fill={metric?.color} />;
   };
 
   if (isLoading) return <div>Loading...</div>;
@@ -130,7 +167,7 @@ const OverviewChart: React.FC = () => {
           >
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis
-              dataKey=""
+              dataKey="name"
               tick={{ fontSize: 12 }}
               tickMargin={10}
               tickFormatter={formatXAxis}
@@ -141,14 +178,13 @@ const OverviewChart: React.FC = () => {
                 borderRadius: "8px",
                 boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
                 border: "none",
+                backgroundColor: "#fff",
               }}
-              labelFormatter={(value) =>
-                new Date(value).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })
-              }
+              labelFormatter={formatTooltipLabel}
+              formatter={(value, name) => [
+                value,
+                metrics.find((m) => m.key === name)?.name || name,
+              ]}
             />
             <Legend
               wrapperStyle={{
@@ -169,9 +205,12 @@ const OverviewChart: React.FC = () => {
                     name={metric.name}
                     stroke={metric.color}
                     strokeWidth={2}
-                    strokeDasharray={metric.strokeDasharray}
-                    dot={metric.activeDot}
-                    activeDot={metric.activeDot}
+                    dot={<CustomDot metricKey={metric.key} />}
+                    activeDot={{
+                      r: 8,
+                      fill: metric.color,
+                    }}
+                    connectNulls={true} // This ensures lines connect across null/zero values
                   />
                 )
             )}
