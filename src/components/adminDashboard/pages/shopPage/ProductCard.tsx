@@ -130,9 +130,9 @@ const ProductCard: React.FC = () => {
         >
           <Image
             src={item?.image}
-            width={284}
-            height={236}
-            className="w-full h-auto"
+            width={1000}
+            height={1000}
+            className="w-full h-[300px] object-contain rounded-lg"
             alt={item?.title}
           />
           <div className="space-y-2 mt-4">

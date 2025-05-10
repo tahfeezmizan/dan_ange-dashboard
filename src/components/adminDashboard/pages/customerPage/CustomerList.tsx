@@ -39,8 +39,8 @@ const columns: ColumnsType<UserData> = [
     title: "Profile Image",
     key: "profileImage",
     render: (_, record) =>
-      record.profileImage ? (
-        <Avatar src={record.profileImage} />
+      record?.profileImage ? (
+        <Avatar src={record?.profileImage} alt="Profile" />
       ) : (
         <Avatar icon={<UserOutlined />} />
       ),
@@ -49,15 +49,16 @@ const columns: ColumnsType<UserData> = [
 
 export default function CustomerList() {
   const { data, isLoading, isError } = useGetAllUserQuery({});
-  const users = data?.data || [];
+  const users = data?.data?.result || [];
+  console.log(users);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const formattedData: UserData[] = users.map((user: any, index: number) => ({
+  const formattedData: UserData[] = users?.map((user: any, index: number) => ({
     key: String(index + 1),
-    name: `${user.firstName || ""} ${user.lastName || ""}`.trim(),
-    email: user.email || "N/A",
-    phonenumber: user.phoneNumber || "N/A",
-    profileImage: user.userImage || "",
+    name: `${user?.firstName || ""} ${user?.lastName || ""}`.trim(),
+    email: user?.email || "N/A",
+    phonenumber: user?.phoneNumber || "N/A",
+    profileImage: user?.userImage || "",
   }));
 
   if (isLoading) {

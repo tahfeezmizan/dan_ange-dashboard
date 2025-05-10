@@ -42,7 +42,7 @@ const ShopDescription = () => {
         form.resetFields();
       }
     } catch (error: any) {
-      toast.error(error?.errorSources);
+      toast.error(error?.data?.message);
     }
   };
 
@@ -92,8 +92,9 @@ const ShopDescription = () => {
       toast.success(res.message || "Update successful!");
       closeModal();
     } catch (error: any) {
+      // Display error message from the response
+      toast.error(error?.message || "Update failed");
       console.error("Update error:", error);
-      toast.error(error?.data?.message || "Update failed");
     }
   };
 

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 
 import { Table, Button } from "antd";
@@ -37,18 +38,21 @@ const OrderList = () => {
   const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
 
   const { data } = useGetAllOrderDetailsQuery({});
+  console.log(data?.data?.result, "order data");
   const { data: raffle } = useGetAllRaffleEntriesQuery({
     ids: selectedOrderId ? [selectedOrderId] : [],
   });
 
-  // Map API data to display in the table
+  // Map API data to display in the table and divide the totalPrice by 100
   const dataSource: OrderData[] =
-    data?.data?.data?.map((item: any) => ({
+    data?.data?.result?.map((item: any) => ({
       key: item.id,
       name: `${item.user?.firstName || ""} ${item.user?.lastName || ""}`.trim(),
       email: item.user?.email || "Not Available",
       country: "Not Available",
-      totalPrice: item.totalPrice ? `$${item.totalPrice}` : "Not Available",
+      totalPrice: item.totalPrice
+        ? `$${(item.totalPrice / 100).toFixed(2)}`
+        : "Not Available",
       quantity: item.quantity || 0,
       status: item.status || "Unknown",
       createdAt: item.createdAt || "Not Available",
@@ -57,7 +61,9 @@ const OrderList = () => {
     })) || [];
 
   const openModal = (record: OrderData) => {
-    const fullRecord = data?.data?.find((item: any) => item.id === record.key);
+    const fullRecord = data?.data?.result?.find(
+      (item: any) => item.id === record.key
+    );
     setSelectedRecord({
       ...record,
       cartItems: fullRecord?.cartItems,
@@ -154,19 +160,25 @@ const OrderList = () => {
                     title: "Pack Title",
                     dataIndex: ["packs", "title"],
                     key: "packTitle",
+                    render: (text) => (text ? text : "-"), // Check if packs are null and display fallback
                   },
                   {
                     title: "Description",
                     dataIndex: ["packs", "description"],
                     key: "description",
+                    render: (text) => (text ? text : "-"), // Check if packs are null and display fallback
                   },
                   {
                     title: "Price",
                     dataIndex: ["packs", "price"],
                     key: "price",
-                    render: (price) => `$${price}`,
+                    render: (price) =>
+                      price ? `$${(price / 100).toFixed(2)}` : "-", // Check if price is null and display fallback
                   },
                 ]}
+                scroll={{
+                  y: 240, // Set the fixed height and make it scrollable if content overflows
+                }}
               />
             ) : (
               <p>No raffle entries found for this order</p>

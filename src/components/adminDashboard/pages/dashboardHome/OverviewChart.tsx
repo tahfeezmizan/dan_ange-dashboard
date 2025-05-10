@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useGetDashboardQuery } from "@/redux/feature/api/dashboard/DashbaordApi";
@@ -30,6 +31,12 @@ const OverviewChart: React.FC = () => {
     isError,
   } = useGetDashboardQuery(timeRange);
   const chartData = response?.data || [];
+
+  // Divide the totalPrice by 100
+  const formattedChartData = chartData.map((item: any) => ({
+    ...item,
+    totalPrice: item.totalPrice / 100, // Divide the totalPrice by 100
+  }));
 
   // Enhanced metrics configuration
   const metrics = [
@@ -105,7 +112,6 @@ const OverviewChart: React.FC = () => {
   };
 
   // Custom dot component - shows only for values > 0
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const CustomDot = (props: any) => {
     const { cx, cy, payload, metricKey } = props;
     const value = payload[metricKey];
@@ -162,7 +168,7 @@ const OverviewChart: React.FC = () => {
       <div className="w-full h-[250px] sm:h-[300px] md:h-[350px]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
-            data={chartData}
+            data={formattedChartData}
             margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
           >
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />

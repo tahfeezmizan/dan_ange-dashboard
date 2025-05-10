@@ -1,103 +1,51 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
+import Loading from "@/components/shared/loading/Loading";
+import { useGetAllPaymentsQuery } from "@/redux/feature/api/payment/paymentApi";
 import React from "react";
 
-const paymentData = [
-  {
-    id: 1,
-    payDate: "25/02/2025",
-    name: "Jenny Wilson",
-    country: "USA",
-    transactionId: "#56845fgdoijgsd",
-  },
-  {
-    id: 2,
-    payDate: "25/02/2025",
-    name: "Jenny Wilson",
-    country: "USA",
-    transactionId: "#56845fgdoijgsd",
-  },
-  {
-    id: 3,
-    payDate: "25/02/2025",
-    name: "Jenny Wilson",
-    country: "USA",
-    transactionId: "#56845fgdoijgsd",
-  },
-  {
-    id: 4,
-    payDate: "25/02/2025",
-    name: "Jenny Wilson",
-    country: "USA",
-    transactionId: "#56845fgdoijgsd",
-  },
-  {
-    id: 5,
-    payDate: "25/02/2025",
-    name: "Jenny Wilson",
-    country: "USA",
-    transactionId: "#56845fgdoijgsd",
-  },
-  {
-    id: 6,
-    payDate: "25/02/2025",
-    name: "Jenny Wilson",
-    country: "USA",
-    transactionId: "#56845fgdoijgsd",
-  },
-  {
-    id: 7,
-    payDate: "25/02/2025",
-    name: "Jenny Wilson",
-    country: "USA",
-    transactionId: "#56845fgdoijgsd",
-  },
-  {
-    id: 8,
-    payDate: "25/02/2025",
-    name: "Jenny Wilson",
-    country: "USA",
-    transactionId: "#56845fgdoijgsd",
-  },
-  {
-    id: 9,
-    payDate: "25/02/2025",
-    name: "Jenny Wilson",
-    country: "USA",
-    transactionId: "#56845fgdoijgsd",
-  },
-  {
-    id: 10,
-    payDate: "25/02/2025",
-    name: "Jenny Wilson",
-    country: "USA",
-    transactionId: "#56845fgdoijgsd",
-  },
-];
-
 const PaymentList = () => {
+  const { data, isLoading } = useGetAllPaymentsQuery({});
+  const paymentList = data?.data?.result; // Extract the list of payments
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white rounded-lg shadow-md">
-        <thead className="">
+        <thead>
           <tr className="border-b font-museomoderno">
             <th className="px-6 py-5 text-left font-semibold">Sl.</th>
-            <th className="px-6 py-5 text-left font-semibold">Pay Date</th>
-            <th className="px-6 py-5 text-left font-semibold">Name</th>
-            <th className="px-6 py-5 text-left font-semibold">Country</th>
-            <th className="px-6 py-5 text-left font-semibold">
-              Transaction ID
-            </th>
+            <th className="px-6 py-5 text-left font-semibold">Payment ID</th>
+            <th className="px-6 py-5 text-left font-semibold">User</th>
+            <th className="px-6 py-5 text-left font-semibold">Email</th>
+            <th className="px-6 py-5 text-left font-semibold">Amount</th>
+            <th className="px-6 py-5 text-left font-semibold">Date</th>
           </tr>
         </thead>
         <tbody>
-          {paymentData.map((payment) => (
-            <tr key={payment.id} className="font-light text-sm">
-              <td className="px-6 py-4">{payment.id}</td>
-              <td className="px-6 py-4">{payment.payDate}</td>
-              <td className="px-6 py-4">{payment.name}</td>
-              <td className="px-6 py-4">{payment.country}</td>
-              <td className="px-6 py-4">{payment.transactionId}</td>
+          {paymentList?.map((payment: any, index: number) => (
+            <tr key={payment.paymentId} className="font-light text-sm">
+              <td className="px-6 py-4">{index + 1}</td> {/* Serial number */}
+              <td className="px-6 py-4">{payment.paymentId}</td>
+              <td className="px-6 py-4">
+                {`${payment.orderDetails.user.firstName} ${payment.orderDetails.user.lastName}`}
+              </td>
+              <td className="px-6 py-4">{payment.orderDetails.user.email}</td>
+              {/* Payment Amount divided by 100 */}
+              <td className="px-6 py-4">
+                $
+                {payment.amount
+                  ? (payment.amount / 100).toFixed(2)
+                  : "Not Available"}
+              </td>
+              {/* Format Date */}
+              <td className="px-6 py-4">
+                {new Date(payment.createdAt).toLocaleString()}
+              </td>
             </tr>
           ))}
         </tbody>

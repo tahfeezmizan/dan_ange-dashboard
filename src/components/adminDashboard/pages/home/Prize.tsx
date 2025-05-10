@@ -109,15 +109,15 @@ const Prize = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {prizes.map((prize) => (
             <div
-              key={prize.id}
+              key={prize?.id}
               className="bg-primary/10 shadow-md rounded-xl flex flex-col items-center text-center transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
             >
               {/* Image Section */}
               <div className="relative w-full p-4 rounded-lg bg-gradient-to-br from-[#F9AB7F] via-[#F9AB7F]/30 to-white h-72 lg:h-60 xl:h-80">
                 {/* Image positioned properly inside the gradient */}
                 <Image
-                  src={prize.image}
-                  alt={prize.title}
+                  src={prize?.image}
+                  alt={prize?.title}
                   width={1000}
                   height={1000}
                   className="w-[410px] h-60 object-contain bg-no-repeat mx-auto relative z-10"
@@ -126,12 +126,12 @@ const Prize = () => {
               <div className="space-y-5 px-5">
                 {/* Prize Title */}
                 <h3 className="font-museomoderno text-xl xl:text-3xl font-semibold mt-4 h-20">
-                  {prize.title}
+                  {prize?.title}
                 </h3>
 
                 {/* Description */}
                 <p className="text-gray300 text-base lg:text-sm xl:text-base mt-3 h-20">
-                  {prize.description}
+                  {prize?.description}
                 </p>
               </div>
               <button className="w-full p-5 flex items-center justify-end">

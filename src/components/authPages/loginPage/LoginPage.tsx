@@ -5,13 +5,14 @@ import { useLoginMutation } from "@/redux/feature/api/authApi";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const router = useRouter();
   // const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [loginUser] = useLoginMutation();
+  const [loginUser, { isLoading }] = useLoginMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -27,7 +28,7 @@ const LoginPage = () => {
       if (res.success) {
         //dispatch(setUser(res.data));
         localStorage.setItem("accessToken", res.data.accessToken);
-        alert(res.message);
+        toast.success(res.message);
         router.push("/");
       }
     } catch (error) {
@@ -96,7 +97,12 @@ const LoginPage = () => {
           </div>
 
           {/* Submit Button */}
-          <SharedButton type="submit" classes="w-full" text="LOG IN" />
+          <SharedButton
+            type="submit"
+            classes="w-full"
+            text="LOG IN"
+            isLoading={isLoading}
+          />
         </form>
       </div>
     </div>

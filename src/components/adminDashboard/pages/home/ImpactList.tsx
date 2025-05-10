@@ -12,10 +12,10 @@ import { BsTrash } from "react-icons/bs";
 import { toast } from "react-toastify";
 import Modal from "@/components/shared/modal/Modal";
 import { FaEdit } from "react-icons/fa";
-import { ButtonLoading } from "@/components/shared/loading/Loading";
+import Loading, { ButtonLoading } from "@/components/shared/loading/Loading";
 
 const ImpactList = () => {
-  const { data: impact } = useGetAllImpactsQuery({});
+  const { data: impact, isLoading: impactLoading } = useGetAllImpactsQuery({});
   const impacts = impact?.data;
   const [deleteImpact] = useDeleteImpactMutation();
   const [editImpact, { isLoading }] = useUpdateImpactMutation({});
@@ -89,6 +89,9 @@ const ImpactList = () => {
     }
   };
 
+  if (impactLoading) {
+    return <Loading />;
+  }
   return (
     <div className="container mx-auto px-4">
       {/* Section Header */}

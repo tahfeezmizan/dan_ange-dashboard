@@ -42,7 +42,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         { name: "Home Page", href: "/dashboard/home/home-page" },
         { name: "Prizes", href: "/dashboard/home/prizes" },
         { name: "How it works", href: "/dashboard/home/how-it-works" },
-        { name: "Choose your pack", href: "/dashboard/home/choose-pack" },
+        // { name: "Choose your pack", href: "/dashboard/home/choose-pack" },
         { name: "Ambassadors", href: "/dashboard/home/ambassadors" },
         { name: "Charity partner", href: "/dashboard/home/charity-partner" },
         { name: "Our impact", href: "/dashboard/home/our-impact" },

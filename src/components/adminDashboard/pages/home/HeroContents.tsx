@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Table, Button } from "antd";
@@ -13,6 +11,7 @@ import {
   useUpdateHeroContentMutation,
 } from "@/redux/feature/api/heroContent/HeroContentApi";
 import { toast } from "react-toastify";
+import Loading from "@/components/shared/loading/Loading";
 
 interface HeroContentData {
   key: string;
@@ -30,22 +29,25 @@ const HeroContents = () => {
   const [selectedRecord, setSelectedRecord] = useState<HeroContentData | null>(
     null
   );
-  const { data } = useGetAllHeroContentsQuery({});
+  const { data, isLoading } = useGetAllHeroContentsQuery({});
   const [updateIsLive] = useUpdateHeroContentMutation();
   const [deleteHeroContent] = useDeleteHeroContentMutation();
 
-  // Check if data exists and map it to the table format
+  // Ensure data?.data is an array before using .map()
   const dataSource: HeroContentData[] =
-    data?.data.map((item: any) => ({
-      key: item.id,
-      title: item.title,
-      subTitle: item.subTitle,
-      description: item.description,
-      heroImage: item.heroImage,
-      isLive: item.isLive,
-      createdAt: item.createdAt,
-      updatedAt: item.updatedAt,
-    })) || [];
+    Array.isArray(data?.data) && data?.data.length > 0
+      ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        data?.data.map((item: any) => ({
+          key: item.id,
+          title: item.title,
+          subTitle: item.subTitle,
+          description: item.description,
+          heroImage: item.heroImage,
+          isLive: item.isLive,
+          createdAt: item.createdAt,
+          updatedAt: item.updatedAt,
+        }))
+      : []; // Fallback to an empty array if not an array
 
   const openModal = (record: HeroContentData) => {
     setSelectedRecord(record);
@@ -141,6 +143,10 @@ const HeroContents = () => {
       ),
     },
   ];
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div>

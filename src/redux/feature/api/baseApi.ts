@@ -37,6 +37,7 @@ export const baseApi = createApi({
     "ShopPack",
     "ShopProduct",
     "ShopPrize",
+    "Payment",
   ],
 });
 export const {} = baseApi;
