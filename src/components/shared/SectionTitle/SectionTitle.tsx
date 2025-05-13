@@ -23,7 +23,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
       {/* Conditionally render the button if buttonTitle is provided */}
       {buttonTitle && (
         <div>
-          {link ? (
+          {Link ? (
             <Link href={link}>
               <button className="text-gray400 text-sm md:text-base px-3 md:px-8 py-2 md:py-3 rounded-full font-bold font-museomoderno uppercase bg-gradient-to-r from-[#F9AB7FCC] to-[#FFFFFF]">
                 {buttonTitle}
