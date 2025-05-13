@@ -19,6 +19,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
       <h1 className="text-2xl md:text-3xl font-semibold font-museomoderno">
         {title}
       </h1>
+      
       {/* Conditionally render the button if buttonTitle is provided */}
       {buttonTitle && (
         <div>
