@@ -19,7 +19,7 @@ const AboutTitle = () => {
 
   /**
    * Callback function for when the form is submitted.
-   * @param {FormData} values - The form data, containing a title and description.
+   * @param {FormData} values 
    */
 
   const onFinish = async (values: FormData) => {
