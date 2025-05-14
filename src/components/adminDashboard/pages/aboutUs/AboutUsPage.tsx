@@ -24,15 +24,15 @@ export default function AboutUsPage() {
 
   // Open Modal and set initial values
   const openModal = () => {
-    const itemToEdit = aboutData?.data; // aboutData.data is an object
+    const itemToEdit = aboutData?.data;
     if (itemToEdit) {
       console.log(itemToEdit);
-      setCurrentImpactId(itemToEdit?.id); // Directly use the string id
+      setCurrentImpactId(itemToEdit?.id); 
       setFormData({
         title: itemToEdit.title,
         description: itemToEdit.description,
       });
-      setIsModalOpen(true); // Open the modal
+      setIsModalOpen(true); 
     }
   };
 
@@ -40,7 +40,7 @@ export default function AboutUsPage() {
   const closeModal = () => {
     setIsModalOpen(false);
     setFormData({ title: "", description: "" });
-    setCurrentImpactId(null); // Reset the id to null
+    setCurrentImpactId(null); 
   };
 
   // Handle form input changes

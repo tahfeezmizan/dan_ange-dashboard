@@ -35,7 +35,7 @@ const OverviewChart: React.FC = () => {
   // Divide the totalPrice by 100
   const formattedChartData = chartData.map((item: any) => ({
     ...item,
-    totalPrice: item.totalPrice / 100, // Divide the totalPrice by 100
+    totalPrice: item.totalPrice / 100, 
   }));
 
   // Enhanced metrics configuration
@@ -48,7 +48,7 @@ const OverviewChart: React.FC = () => {
       activeDot: { r: 8, fill: "#0000FF" },
     },
     {
-      key: "quantity", // Must match API response field exactly
+      key: "quantity", 
       name: "Pack Booking",
       color: "#22C55E", // Green
       dot: { r: 6, fill: "#22C55E" },

@@ -4,7 +4,6 @@
 import { useState } from "react";
 import OverviewChart from "@/components/adminDashboard/pages/dashboardHome/OverviewChart";
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
-// import StatsCard from "@/components/adminDashboard/pages/dashboardHome/StatsCard";
 import OrderListTable from "@/components/OrderListTable/OrderListTable";
 import {
   useLazyCsvDownloadQuery,
@@ -138,7 +137,6 @@ const DashboardHomePage = () => {
         </div>
       </div>
       <PaymentCards />
-      {/* <StatsCard /> */}
       <OverviewChart />
       <SectionTitle title="Order List" />
       <OrderListTable />
